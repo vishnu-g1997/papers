@@ -1,0 +1,63 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\item The cross product of $\vec{a},\vec{b}$ is defined as
+\begin{equation}
+\label{eq:cross}
+\vec{a}\times \vec{b} = \myvec{0 & -a_3 & a_2 \\ a_3 & 0 & -a_1 \\ -a_2 & a_1 & 0}\myvec{b_1 \\ b_2 \\ b_3}
+\end{equation}
+From \eqref{eq:l1}, \eqref{eq:l2}, the direction vectors of $L_1$ and $L_2$ are
+\begin{equation}
+\myvec{1 \\ 1 \\ 0} \text{ and } \myvec{-3 \\ 5 \\ 7}
+\end{equation}
+respectively. Find the direction vector of the normal to the plane spanned by $L_1$ and $L_2$.
+\\
+\solution The desired vector is obtained as
+\begin{align}
+\myvec{1 \\ 1 \\ 0} \times \myvec{-3 \\ 5 \\ 7} = 
+ \myvec{0 & 0 & 1 \\ 0 & 0 & -1 \\ -1 & 1 & 0}\myvec{-3 \\ 5 \\ 7}
+= \myvec{7 \\ -7 \\ 8} = \vec{n}
+\end{align}
+\item Summarize all the above computations through a plot 
+\\
+\solution The following code generates Fig. \ref{fig:2.1}.
+\begin{lstlisting}
+codes/3d/2.1.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{./3d/figs/2.1.eps}
+\caption{}
+\label{fig:2.1}
+\end{figure}
+\item Find the equation of the plane spanned by $L_1$ and $L_2$.
+\\
+\solution Let $\vec{x}_0$ be the intersection of $L_1$ and $L_2$.  Then the equation of the plane is
+\begin{align}
+\brak{\vec{x}-\vec{x}_0}^T\vec{n} &= 0
+\\
+\implies \vec{x}^T\vec{n} &= \vec{x}_0^T\vec{n}
+\\
+\implies \vec{x}^T\myvec{7 \\ -7 \\ 8} &= \myvec{-1 & 4 & 4}\myvec{7 \\ -7 \\ 8} =  -3
+\end{align}
+\item Summarize  the above through a plot. 
+\\
+\solution The following code generates Fig. \ref{fig:2.2}.
+\begin{lstlisting}
+ 
+codes/3d/2.2.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{./3d/figs/2.2.eps}
+\caption{}
+\label{fig:2.2}
+\end{figure}
+\item
+Find the distance of the origin from the plane containing the lines $L_1$ and $L_2$.
+\\
+\solution The distance from the origin to the plane is given by
+\begin{equation}
+\frac{\abs{\vec{x}_0^T\vec{n}}}{\norm{n}} = \frac{1}{3\sqrt{2}}
+\end{equation}
+\end{enumerate}

@@ -1,0 +1,54 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\item If $\vec{u}, \vec{A}, \vec{B}$ are coplanar, show that
+\begin{equation}
+\vec{u}^T\brak{\vec{A}\times \vec{B}} = 0
+\label{eq:coplanar}
+\end{equation}
+%
+\item Find $\vec{A}\times \vec{B}$ given
+\begin{align}
+\vec{A}=\myvec{2 & 3 & -1}^T
+\\
+\vec{B}=\myvec{0 & 1 & 1}^T
+\end{align}
+\solution From \eqref{eq:cross},
+\begin{align}
+\vec{A}\times \vec{B} &= \myvec{0 & 1& 3 \\ -1 & 0 & -2 \\ -3 & 2 & 0}\myvec{0 \\ 1 \\ 1}
+\\
+&= \myvec{4 \\ -2 \\ 2}
+\label{eq:last_axb}
+\end{align}
+
+\item Let $\vec{u}$ be coplanar with $\vec{A}$
+%
+such that $\vec{u}\perp\vec{A}$ and
+\begin{equation}
+\vec{u}^T\vec{B} = 24.
+\label{eq:uB}
+\end{equation}
+Find $\norm{\vec{u}}^2$.
+\\
+\solution From \eqref{eq:last_axb} and the given information,
+\begin{align}
+\vec{u}^T\myvec{4 & -2 & 2} &=0
+\\
+\vec{u}^T\myvec{2 & 3 & -1} &=0
+\\
+\vec{u}^T\myvec{0 & 1 & 1} &=24
+\\
+\implies \myvec{4 & -2 & 2
+\\
+2 & 3 & -1
+\\
+0 & 1 & 1
+}\vec{u}
+&= \myvec{0 \\ 0 \\ 24}
+\\
+\implies 
+\vec{u} &= 4 \myvec{-1 \\ 2 \\ 4}
+\\
+\implies \norm{\vec{u}}^2 &= 336
+\end{align}
+\end{enumerate}

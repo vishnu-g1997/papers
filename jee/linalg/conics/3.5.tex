@@ -1,0 +1,380 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\item Two parabolas with a common vertex and with axes along $x$-axis and $y$-axis, respectively, intersect 
+each other in the first quadrant.  If the length of the latus rectum of each parabola is 3, find the equation 
+of the common tangent to the two parabolas.
+\\
+\solution The equation of a conic is given by 
+%
+\begin{align}
+\label{eq:conic_gen}
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+F=0
+\end{align}
+%
+For the standard parabola, 
+\begin{align}
+\label{eq:conic_parab_V}
+\vec{V}&=\myvec{0 & 0 \\ 0& 1}
+\\
+\vec{u}&=-2a\myvec{1 \\ 0}
+\label{eq:conic_parab_u}
+\\
+F&=0
+\label{eq:conic_parab_const}
+\end{align}
+%
+The focus
+\begin{align}
+\label{eq:conic_parab_focus}
+\vec{F}&=a\myvec{1 \\ 0}
+\end{align}
+%
+The Latus rectum is the line passing through $\vec{F}$ with direction vector 
+\begin{align}
+\label{eq:conic_parab_latus_m}
+\vec{m}&=\myvec{0 \\ 1}
+\end{align}
+%
+Thus, the equation of the Latus rectum is 
+\begin{align}
+\label{eq:conic_parab_latus}
+\vec{x}&= \vec{F}+\lambda \vec{m}
+\end{align}
+%
+The intersection of the latus rectum and the parabola is obtained from \eqref{eq:conic_parab_const}
+, \eqref{eq:conic_parab_latus}
+and \eqref{eq:conic_gen} as
+\begin{align}
+\brak{\vec{F}+\lambda \vec{m}}^T\vec{V}\brak{\vec{F}+\lambda \vec{m}}+2\vec{u}^T\brak{\vec{F}+\lambda \vec{m}}=0
+\end{align}
+\begin{multline}
+\label{eq:conic_parab_lam_quad}
+\implies \brak{\vec{m}^T\vec{V}\vec{m}}\lambda^2+2\brak{\vec{V}\vec{F}+\vec{u}}^T\vec{m}\lambda 
+\\
++\brak{\vec{V}\vec{F}+2\vec{u}}^T\vec{F} = 0
+\end{multline}
+From \eqref{eq:conic_parab_V}, \eqref{eq:conic_parab_u}, \eqref{eq:conic_parab_focus} and \eqref{eq:conic_parab_latus_m}, 
+\begin{align}
+\label{eq:conic_parab_lam_a}
+\vec{m}^T\vec{V}\vec{m} &= 1
+\\
+\label{eq:conic_parab_lam_b}
+\brak{\vec{V}\vec{F}+\vec{u}}^T\vec{m} &= 0
+\\
+\brak{\vec{V}\vec{F}+2\vec{u}}^T\vec{F} &= -4a^2
+\label{eq:conic_parab_lam_c}
+\end{align}
+Substituting from \eqref{eq:conic_parab_lam_a}, \eqref{eq:conic_parab_lam_b}  and \eqref{eq:conic_parab_lam_c} in \eqref{eq:conic_parab_lam_quad}, 
+\begin{align}
+\lambda^2  - 4a^2 &=0
+\\
+\implies \lambda_1 &=2a,\lambda_2 =-2a
+\label{eq:conic_parab_latus_lam}
+\end{align}
+%
+Thus, from \eqref{eq:conic_parab_latus_m}, \eqref{eq:conic_parab_latus}
+ and \eqref{eq:conic_parab_latus_lam}, the length of the latus rectum is
+\begin{align}
+\brak{\lambda_1-\lambda_2} \norm{\vec{m}} = 4a
+\end{align}
+%
+From the given information, the two parabolas $P_1, P_2$ have parameters
+\begin{align}
+\label{eq:conic_parab_param1}
+\vec{V}_1&=\myvec{0 & 0 \\ 0& 1},\vec{u}_1=-2a\myvec{1 \\ 0},F_1=0
+\\
+\label{eq:conic_parab_param2}
+\vec{V}_2&=\myvec{1 & 0 \\ 0& 0},
+\vec{u}_2=-2a\myvec{0 \\ 1},
+F_2=0
+\\
+4a&=3
+\label{eq:conic_parab_a}
+\end{align}
+Let $L$ be the common tangent for $P_1,P_2$ with  $\vec{c},\vec{d}$ being the respective points of contact. The respectivel normal vectors are
+\begin{align}
+\vec{n}_1 &= \vec{V}_1\vec{c}+\vec{u}_1 = -2a\myvec{1\\-\frac{c_2}{2a}}
+\\
+\vec{n}_2 &= \vec{V}_2\vec{d}+\vec{u}_2  = d_1\myvec{1\\-\frac{2a}{d_1}}
+\end{align}
+%
+From the above equations, since both normals have the same direction vector, 
+\begin{align}
+\myvec{1\\-\frac{c_2}{2a}}&=\myvec{1\\-\frac{2a}{d_1}}
+\implies c_2d_1 = 4a^2
+\end{align}
+%Also, 
+%\begin{align}
+%d_2 = 4ad_1^2, c_1 = 4ac_2^2
+%\end{align}
+%Thus,
+%\begin{align}
+%\vec{c} = \myvec{\frac{64a^5}{d_1^2}\\ \frac{4a^2}{d_1}}, \vec{d} = \myvec{d_1\\ 4ad_1^2}
+%\end{align}
+
+%\item A hyperbola passes through the point 
+%\begin{equation}
+%\vec{P}=\myvec{\sqrt{2}\\ \sqrt{3}}
+%\end{equation}
+%and has foci at $\myvec{\pm 2\\ 0}$.  Find the equation of the tangent to this hyperbola at 
+%$\vec{P}$.
+%\\
+%\solution Let 
+%\begin{align}
+%\vec{F}_1 = 2\myvec{1 \\ 0},
+%\vec{F}_2 = -2\myvec{1 \\ 0}
+%\end{align}
+%%
+%Comparing with \eqref{eq:conic_gen}
+%%
+%\begin{align}
+%\vec{V} &= \myvec{\frac{1}{a^2} & 0 \\ 0 & -\frac{1}{b^2}}, 
+%\vec{u} = 0,
+%F=-1,
+%\\
+%  a^2+b^2 &= 4
+%\end{align}
+%%
+%The equation to the tangent is then given by 
+%\begin{align}
+%\brak{\vec{\vec{V}\vec{P}}}^T\vec{x} &= 1
+%\implies \myvec{\frac{\sqrt{2}}{a^2} & -\frac{\sqrt{3}}{b^2}}\vec{x} &=1
+%\end{align}
+
+\item Find the product of the perpendiculars drawn from the foci of the ellipse
+\begin{equation}
+\label{eq:ellipse_prod}
+\vec{x}^T\myvec{25 & 0 \\ 0 & 9}\vec{x}  = 225
+\end{equation}
+upon the tangent to it at the point
+\begin{equation}
+\frac{1}{2}\myvec{3\\ 5 \sqrt{3}}
+\end{equation}
+\\
+\solution For the ellipse in \eqref{eq:ellipse_prod},
+\begin{align}
+\label{eq:ellipse_prod_param}
+V = \myvec{\frac{1}{9} & 0 \\ 0 & \frac{1}{25}}, \vec{u} = 0, F=-1
+\end{align}
+%
+The equation of the desired tangent is
+\begin{align}
+\label{eq:ellipse_prod_tangent}
+\brak{\vec{V}\vec{P}}^T\vec{x}&=1
+\\
+\implies \myvec{\frac{1}{3} & \frac{\sqrt{3}}{5}}\vec{x}&=2
+\end{align}
+%
+The foci of the ellipse are located at
+\begin{align}
+\vec{F}_1 = \myvec{0\\4},
+\vec{F}_2 = \myvec{0\\-4}
+\end{align}
+The product of the perpendiculars is
+\begin{align}
+\frac{\abs{\myvec{\frac{1}{3} & \frac{\sqrt{3}}{5}}\myvec{0\\4}-2}\abs{\myvec{\frac{1}{3} & \frac{\sqrt{3}}{5}}\myvec{0\\-4}-2}}{\norm{\myvec{\frac{1}{3} & \frac{\sqrt{3}}{5}}}^2}
+=9
+\end{align}
+
+\item  Consider an ellipse, whose centre is at the origin and its major axis is along the $x$-axis.  If its 
+eccentricity is $\frac{3}{5}$ and the distance between its foci is 6, then find the area of the quadrilateral 
+inscribed in the ellipse,  with the vertices as the vertices of the ellipse.
+\\
+\solution If $a$ and $b$ be the semi-major and minor-axis respectively, 
+the foci of the ellipse are 
+\begin{align}
+\vec{F}_1=ae\myvec{1\\0},
+\vec{F}_2=-ae\myvec{1\\0}
+\end{align}
+%
+From the given information,
+\begin{align}
+e &= \frac{3}{5}, 2ae = 6 
+\\
+\implies a &= 5, b = a\sqrt{1-e^2} = 4
+\end{align}
+%
+Thus, the vertices of the ellipse are
+\begin{align}
+\myvec{a\\0},
+\myvec{-a\\0},
+\myvec{0\\b},
+\myvec{0\\-b}
+\end{align}
+and the area of the quadrilateral is
+\begin{align}
+\frac{1}{2}
+\begin{vmatrix}
+1 & 1 & 1
+\\
+a & -a & 0
+\\
+0 & 0 & b
+\end{vmatrix}
++
+\frac{1}{2}
+\begin{vmatrix}
+1 & 1 & 1
+\\
+a & -a & 0
+\\
+0 & 0 & -b
+\end{vmatrix}
+=2ab = 40
+\end{align}
+
+\item Let $a$ and $b$ respectively be the semi-transverse and semi-conjugate axes of a hyperbola whose 
+eccentricity satisfies the equation
+\begin{equation}
+\label{eq:hyper_ecc}
+9e^2-18e+5 = 0
+\end{equation}
+If 
+\begin{equation} 
+\label{eq:hyper_ecc_focus}
+\vec{S}=\myvec{5\\ 0}
+\end{equation}
+is a focus and 
+\begin{equation} 
+\label{eq:hyper_ecc_direc}
+\myvec{5 & 0}\vec{x} = 9
+\end{equation} 
+%
+is the corresponding directrix of this hyperbola, then find $a^2-b^2$.
+\\
+\solution From \eqref{eq:hyper_ecc},
+\begin{align}
+\brak{3e-1}\brak{3e-5} = 0
+\\
+\implies e = \frac{5}{3}, \because e > 1
+\label{eq:hyper_ecc_e}
+\end{align}
+%
+for a hyperbola.  
+Let $\vec{x}$ be a point on the hyperbola.  
+From \eqref{eq:hyper_ecc_direc}, its distance from the directrix is
+%
+\begin{align}
+\label{eq:hyper_ecc_direc_dist}
+\frac{\abs{\myvec{5 & 0}\vec{x} - 9}}{5}
+\end{align}
+%
+and from the focus is 
+\begin{align}
+\label{eq:hyper_ecc_focus_dist}
+\norm{\vec{x}-\myvec{5\\0}}
+\end{align}
+From the definition of a hyperbola, the eccentricity is the ratio of these distances and \eqref{eq:hyper_ecc_e}
+, \eqref{eq:hyper_ecc_direc_dist}
+ and \eqref{eq:hyper_ecc_focus_dist},
+\begin{align}
+\frac{5\norm{\vec{x}-\myvec{5\\0}}}{\abs{\myvec{5 & 0}\vec{x} - 9}} &= \frac{5}{3}
+\\
+\implies 9\cbrak{\brak{x_1-5}^2+x_2^2}&=  \brak{5x_1-9}^2
+\\
+\text{or, } \vec{x}^T\myvec{16 & 0 \\ 0 & -9}\vec{x} = 225
+\end{align}
+%
+which is the equation of the hyperbola.  Thus, 
+\begin{align}
+a^2 = \frac{225}{16}, b^2 = \frac{225}{9}
+\\
+\implies a^2-b^2 = -\frac{175}{16}
+\end{align}
+
+
+%From \eqref{eq:hyper_ecc_focus},
+%\begin{align}
+%ae = 5 \implies a= 3
+%\end{align}
+
+\item A variable line drawn through the 
+intersection of the lines 
+\begin{align} 
+\label{lines_3}
+\myvec{4 & 3}\vec{x} &=12 
+\\ 
+\myvec{3 & 4}\vec{x} &=12 
+\end{align} 
+meets the coordinate axes at $\vec{A}$ and $\vec{B}$, then find the locus of the midpoint of $AB$. 
+\\
+\solution The intersection of the lines in \eqref{lines_3} is obtained through the matrix equation 
+\begin{align}
+\myvec{4 & 3 \\ 3 & 4}\vec{x}  &=\myvec{12\\12}
+\end{align}
+by forming the augmented matrix and row reduction as  
+\begin{align}
+\myvec{4 & 3 &12 \\ 3 & 4 &12} &\leftrightarrow \myvec{4 & 3 &12 \\ 0 & 7 &12} \leftrightarrow \myvec{28 & 0 & 48 \\ 0 & 7 &12}
+\nonumber \\
+\leftrightarrow \myvec{7 & 0 & 12 \\ 0 & 7 &12}&
+\end{align}
+resulting in 
+\begin{align}
+\vec{C}=\frac{1}{7}\myvec{12\\12}
+\end{align}
+%
+Let the $\vec{R}$ be the mid point of $AB$. Then,
+\begin{align}
+\label{eq:lines_3_abr}
+\vec{A} =2 \myvec{1 & 0\\0 & 0}\vec{R} 
+\\
+\vec{B} =2 \myvec{0 & 0\\0 & 1}\vec{R} 
+\end{align}
+%
+Let the equation of $AB$ be 
+%equation of a line passing through $\vec{C}$ be 
+\begin{align}
+\vec{n}^T\brak{\vec{x} - \vec{C}} = 0
+\label{eq:lines_3_def}
+\end{align}
+Since $\vec{R}$ lies on $AB$, 
+\begin{align}
+\vec{n}^T\brak{\vec{R} - \vec{C}} = 0
+\label{eq:lines_3_rc}
+\end{align}
+Also, 
+\begin{align}
+\vec{n}^T\brak{\vec{A} - \vec{B}} = 0
+\label{eq:lines_3_ab}
+\end{align}
+%
+Substituting from \eqref{eq:lines_3_abr} in \eqref{eq:lines_3_ab},
+\begin{align}
+\vec{n}^T\myvec{1 & 0 \\ 0 & -1}\vec{R} = 0
+\label{eq:lines_3_r_sub}
+\end{align}
+%
+From \eqref{eq:lines_3_rc} and \eqref{eq:lines_3_r_sub},
+\begin{align}
+\brak{\vec{R} - \vec{C}} = k\myvec{1 & 0 \\ 0 & -1}\vec{R}
+\label{eq:lines_3_k}
+\end{align}
+%
+for some constant $k$.
+Multiplying both sides of \eqref{eq:lines_3_k} by 
+\begin{align}
+\vec{R}^T\myvec{0 & 1 \\ 1 & 0},
+\end{align}
+\begin{align}
+\vec{R}^T\myvec{0 & 1 \\ 1 & 0}\brak{\vec{R} - \vec{C}} &= k\vec{R}^T\myvec{0 & 1 \\ 1 & 0}\myvec{1 & 0 \\ 0 & -1}\vec{R}
+\nonumber \\
+&= k\vec{R}^T\myvec{0 & -1 \\ 1 & 0}\vec{R} = 0
+\label{eq:lines_3_mul}
+\end{align}
+\begin{align}
+\because \vec{R}^T\myvec{0 & -1 \\ 1 & 0}\vec{R} = 0
+\end{align}
+which can be easily verified for any $\vec{R}$.
+%
+from \eqref{eq:lines_3_mul},
+\begin{align}
+\vec{R}^T\myvec{0 & 1 \\ 1 & 0}\brak{\vec{R} - \vec{C}} = 0
+\nonumber \\
+\implies \vec{R}^T\myvec{0 & 1 \\ 1 & 0}\vec{R} - \vec{R}^T\myvec{0 & 1 \\ 1 & 0}\vec{C} = 0
+\nonumber \\
+\implies \vec{R}^T\myvec{0 & 1 \\ 1 & 0}\vec{R} - \vec{C}^T\myvec{0 & 1 \\ 1 & 0}\vec{R} = 0
+\end{align}
+%
+which is the desired locus.
+\end{enumerate}

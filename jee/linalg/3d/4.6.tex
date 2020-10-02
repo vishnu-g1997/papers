@@ -1,0 +1,174 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\item Find the equation of the plane $P$
+containing the vectors 
+%
+\begin{align}
+\label{eq:least_vecs}
+\vec{x}_1 = \myvec{1 \\ 1 \\ 1}
+,
+\vec{x}_2 = \myvec{0 \\ 1 \\ 2}
+\end{align}
+%
+\item Show that the vector 
+\begin{align}
+\vec{y} = \myvec{6 \\ 0 \\ 0}
+\end{align}
+lies outside $P$.
+\item Find the point $\vec{w} \in P$ closest to $\vec{y}$.
+\item Show that
+\begin{align}
+\norm{\vec{y}-\vec{X}\vec{w}}^2 &= \norm{\vec{y}}^2 - \vec{w}^T\vec{X}^T\vec{y} 
+\\
+& \quad - \vec{y}^TA\vec{w}+\vec{w}^T\vec{X}^T\vec{X}\vec{w}
+\end{align}
+%
+\item Assuming $2\times 2$ matrices and $2 \times 1$ vectors, show that
+\begin{align}
+\frac{\partial}{\partial\vec{w}}\vec{w}^T\vec{X}^T\vec{y} = \frac{\partial}{\partial\vec{w}}\vec{y}^T\vec{X}\vec{w} = 
+\vec{y}^T\vec{X}
+\end{align}
+\item Show that
+\begin{align}
+\frac{\partial}{\partial\vec{w}}\vec{w}^T\vec{X}^T\vec{X}\vec{w} = 2\vec{w}^T\brak{\vec{X}^T\vec{X}}
+\end{align}
+\item Show that 
+\begin{align}
+\hat{\vec{w}} &= \min_{\vec{w}}\norm{\vec{y}-\vec{X}\vec{w}}^2
+\\
+ &= \brak{\vec{X}^T\vec{X}}^{-1}\vec{X}^T \vec{y}
+\label{eq:least_sol}
+\end{align}
+\item Let 
+\begin{align}
+\vec{X} = \myvec{\vec{x}_1 & \vec{x}_2}.
+\end{align}
+from \eqref{eq:least_vecs}.
+Verify \eqref{eq:least_sol}.
+\item
+Run the following Python code and comment on the output for different values of $\mbf{x}$
+\begin{lstlisting}
+ 
+codes/matrix/Prob1_4.py
+\end{lstlisting}
+%	\begin{verbatim}
+%%Code written by GVV Sharma March 30, 2016
+%%Released under GNU GPL.  Free to use for anything.
+%
+%%This program compares the norm defined for the least-squares solution
+%%for the correct solution vs other data points.
+%%You will find that the metric is the smallest for the correct value.
+%
+%clear;
+%close;
+%
+%A = [1 0; 1 1; 1 2]; %The input matrix
+%b = [6;0;0]; %The output vector
+%
+%P = inv(A'*A)*A';%pseudoinverse
+%
+%x_ls = P*b; %The least squares solution
+%
+%x = [5;-5]; %Any random input
+%
+%exact_ls_metric = norm(b-A*x_ls)^2 %The metric for actual soltuion
+%random_ls_metric = norm(b-A*x)^2 %metric for a random value of x
+%	
+%	\end{verbatim}
+
+
+%
+%\item
+%	Type the following code in Python and observe the output.
+%\begin{verbatim}
+%%Code written by GVV Sharma March 31, 2016
+%%Released under GNU GPL.  Free to use for anything.
+%
+%
+%%This program plots the least squares metric for a range of
+%%vectors x in the mesh with vertices (-10,-10),(-10,10),(10,-10)
+%%%and (10,10)
+%
+%%The result is a 3-D mesh.  The theoretical minimum is (5,-3)
+%%Values obtained through the following program are close to the 
+%%theoreticl solution
+%
+%
+%clear;
+%close;
+%
+%A = [1 0; 1 1; 1 2]; %The input matrix
+%b = [6;0;0]; %The output vector
+%
+%
+%x1 = linspace(-10,10,50); %generating points in x-axis
+%x2 = linspace(-10,10,50);  %generating points in y-axis
+%
+%[xx, yy] = meshgrid(x1,x2);
+%
+%ffun = @(x,y) norm(b-A*[x;y])^2;
+%
+%f = arrayfun(ffun,xx,yy);
+%
+%mesh(xx,yy,f)
+%
+%[M I] = min(f(:)); %vectorize the 50 x 50 matrix f, find min
+%%M = min value , I is the index of the f_min
+%
+%[I_r I_c] = ind2sub(size(f),I); %Get the row, col index of f_min
+%
+%
+%%The least square solution
+%xx(I_r,I_c) 
+%yy(I_r,I_c)
+%%The minimum value of metric
+%M
+%
+%\end{verbatim}
+%
+%
+\item
+	Compare the results obtained by typing the following code with the results in the previous problem.
+\begin{lstlisting}
+ 
+codes/matrix/Prob1_6.py
+\end{lstlisting}
+%\begin{verbatim}
+%Code written by GVV Sharma March 31, 2016
+%Released under GNU GPL.  Free to use for anything.
+
+
+%This program finds the theoretical least squares solution using 
+%SVD 
+
+%clear;
+%close;
+%
+%A = [1 0; 1 1; 1 2]; %The input matrix
+%b = [6;0;0]; %The output vector
+%
+%
+%[U S V] = svd(A); % Computing the SVD of A
+%
+%temp_S = 1./diag(S); %inverting the diagonal values of S
+%
+%Splus = [diag(temp_S) zeros(2,1)]; %inverse transpose of S
+%
+%Aplus = V*Splus*U'; %The Moore-Penrose pseudo-inverse
+%
+%Aplus*b %least squares solution.
+%
+%\end{verbatim}
+
+%
+\item
+	Type the following code in Python and run.  Comment.
+
+%
+\begin{lstlisting}
+ 
+codes/matrix/Prob1_7.py
+\end{lstlisting}
+\end{enumerate}
+

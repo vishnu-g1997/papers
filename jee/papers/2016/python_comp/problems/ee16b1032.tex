@@ -1,0 +1,22 @@
+The given expression can be simplified as
+%
+\begin{align}
+\label{prob32}
+p_n = \sbrak{\frac{\brak{n+1}\brak{n+2}\dots \brak{3n}}{n^{2n}}}^{\frac{1}{n}} & = \sbrak{\frac{\brak{3n}!}{n!n^{2n}}}^{\frac{1}{n}}
+\end{align}
+%
+From Stirling's formula, for large $n$,
+%
+\begin{equation}
+ n!\sim {\sqrt {2\pi n}}\left({\frac {n}{e}}\right)^{n}.
+\end{equation}
+%
+Substituting the above in \eqref{prob32},
+%
+\begin{align}
+\sbrak{\frac{\brak{3n}!}{n!n^{2n}}}^{\frac{1}{n}} & = \sbrak{\frac{{\sqrt {2\pi \brak{3n}}}\left({\frac {3n}{e}}\right)^{3n}}{{\sqrt {2\pi n}}\left({\frac {n}{e}}\right)^{n}.n^{2n}}}^{\frac{1}{n}}
+\\
+&= \sbrak{\frac{\sqrt{3}\brak{3}^{3n}}{e^{2n}}}^{\frac{1}{n}} = \frac{27}{e^2}
+\end{align}
+%
+in the limit.

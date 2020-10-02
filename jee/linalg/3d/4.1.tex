@@ -1,0 +1,112 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\item  $L_1$ is the intersection of planes 
+\begin{align}
+\begin{split}
+\myvec{2 & -2 & 3}\vec{x} &= 2
+\\
+\myvec{1 & -1 & 1}\vec{x} &= -1
+\end{split}
+\label{eq:l1_planes}
+\end{align}
+%
+Find its equation.
+\\
+\solution \eqref{eq:l1_planes} can be written in matrix form as
+\begin{align}
+\myvec{2 & -2 & 3 \\ 1 & -1 & 1}\vec{x} = \myvec{2 \\ -1},
+\end{align}
+%
+and solved using the augmented matrix as follows
+\begin{align}
+\myvec{2 & -2 & 3 & 2\\ 1 & -1 & 1 & -1} \leftrightarrow \myvec{ 1 & -1 & 1 & -1 \\ 2 & -2 & 3 & 2}
+\\
+\leftrightarrow \myvec{ 1 & -1 & 1 & -1 \\ 0 & 0 & 1 & 4} \leftrightarrow \myvec{ 1 & -1 & 0 & -5 \\ 0 & 0 & 1 
+& 4}
+\\
+\implies \vec{x} = \myvec{ x_1 \\ x_2 \\ x_3} = \myvec{ x_2-5 \\ x_2 \\ 4} = \myvec{ 
+-5 \\ 0 \\ 4} + \lambda_1 \myvec{ 1 \\ 1 \\ 0}
+\label{eq:l1}
+\end{align}
+%
+which is the desired equation.
+\item Summarize all the above computations through a Python script and plot 
+$L_1$.
+\\
+\solution The following code generates Fig. \ref{fig:1.1}.
+\begin{lstlisting}
+codes/3d/1.1.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{./3d/figs/1.1.eps}
+\caption{}
+\label{fig:1.1}
+\end{figure}
+
+\item $L_2$ is the intersection of the planes
+\begin{align}
+\myvec{1 & 2 & -1}\vec{x} &= 3
+\\
+\myvec{3 & -1 & 2}\vec{x} &= 1
+\end{align}
+Show that its equation is
+%
+\begin{align}
+\vec{x} = \frac{1}{7}\myvec{ 5 \\ 8 \\ 0} + \lambda_2 \myvec{ -3 \\ 5 \\ 7}
+\label{eq:l2}
+\end{align}
+\item Plot 
+$L_2$.
+\\
+\solution The following code generates Fig. \ref{fig:1.2}.
+\begin{lstlisting}
+ 
+codes/3d/1.2.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{./3d/figs/1.2.eps}
+\caption{}
+\label{fig:1.2}
+\end{figure}
+
+\item Do $L_1$ and $L_2$ intersect? If so, find their point of intersection $P$.
+\\
+\solution From \eqref{eq:l1},\eqref{eq:l2}, the point of intersection is given by
+\begin{align}
+\label{eq:l1l2pt}
+\vec{x} = \frac{1}{7}\myvec{ 5 \\ 8 \\ 0} + \lambda_2 \myvec{ -3 \\ 5 \\ 7} &= \myvec{ 
+-5 \\ 0 \\ 4} + \lambda_1 \myvec{ 1 \\ 1 \\ 0}
+\\
+\implies 
+\myvec{1 &  3 \\ 1 & -5 \\ 0 & -7}\vec{\Lambda} &= \frac{1}{7}\myvec{40 \\ 8 \\ -28}
+\end{align}
+This matrix equation can be solved as
+\begin{align}
+\myvec{1 &  3 & \frac{40}{7}\\ 1 & -5 &\frac{8}{7}\\ 0 & -7 & -4} &\leftrightarrow \myvec{8 &  0 & 
+\frac{224}{7}\\ 0 & 1 &\frac{4}{7}\\ 0 & 1 & \frac{4}{7} }
+\\
+\leftrightarrow \myvec{1 &  0 & 
+4\\ 0 & 1 &\frac{4}{7} } &\implies \vec{\Lambda} = \myvec{4\\\frac{4}{7}}
+\end{align}
+%
+Substituting $\lambda_1 = 4$ in \eqref{eq:l1l2pt}
+\begin{align}
+\vec{x} = \myvec{4 \\ 4 \\ 0} + \myvec{-5 \\ 0 \\ 4} = \myvec{-1\\ 4\\ 4}
+\end{align}
+\item Plot $P$.
+\\
+\solution The following code generates Fig. \ref{fig:1.3}.
+\begin{lstlisting}
+ 
+codes/3d/1.3.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{./3d/figs/1.3.eps}
+\caption{}
+\label{fig:1.3}
+\end{figure}
+\end{enumerate}

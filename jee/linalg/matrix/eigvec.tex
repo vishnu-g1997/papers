@@ -1,0 +1,133 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+
+\item Let 
+\begin{align}
+\vec{P} = \myvec{1 & 1 & 1 \\ 0 & 2 & 2 \\ 0 & 0 & 3}, 
+\vec{Q} = \myvec{2 & x & x \\ 0 & 4 & 0 \\ x & x & 6}
+\label{eq:2019_qp2_2_q}
+\end{align}
+%
+
+\item Find $x$ such that $PQ=QP$.
+%
+\\
+\solution 
+\begin{align}
+\because \vec{Q} &= \myvec{2 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 6} +x\myvec{0 & 1 & 1 \\ 0 & 0 & 0 \\ 1 & 1 & 0}, 
+\end{align}
+\begin{align}
+\vec{P}\vec{Q} = 
+ \myvec{2 & 4 & 6 \\ 0 & 8 & 12 \\ 0 & 0 & 18}+x\myvec{1 & 2 & 1 \\ 2 & 2 & 0 \\ 3 & 3 & 0}
+\end{align}
+and 
+\begin{multline}
+\vec{Q}\vec{P} = 
+\myvec{2 & 2 & 2 \\ 0 & 8 & 8 \\ 0 & 0 & 18}+x\myvec{0 & 2 & 5 \\ 0 & 0 & 0 \\ 1 & 3 & 3} 
+\end{multline}
+%
+Thus, 
+\begin{align}
+\vec{P}\vec{Q} = \vec{Q}\vec{P} 
+\implies 
+\myvec{0 & 2 & 4 \\ 0 & 0 & 4 \\ 0 & 0 & 0} &= x\myvec{-1 & 0 & 4 \\ -2 & -2 & 0 \\ -2 & 0 & 3}
+\end{align}
+which has no solution.
+\item If 
+\begin{align}
+\vec{R} = \vec{P}\vec{Q}\vec{P}^{-1},
+\end{align}
+verify whether 
+\begin{align}
+\det{\vec{R}}= 
+\det\myvec{2 & x & x \\ 0 & 4 & 0 \\ x & x & 5} + 8
+\end{align}
+for all $x$.
+\\
+\solution 
+\begin{align}
+\det(\vec{R}) &= \det(\vec{P})\det(\vec{Q})\det(\vec{P})^{-1}=\det(\vec{Q})
+\nonumber \\
+&= 4\brak{12-x^2}
+\end{align}
+%
+Thus, 
+\begin{multline}
+\det(\vec{R}) - \det\myvec{2 & x & x \\ 0 & 4 & 0 \\ x & x & 5}
+\\
+= 4\cbrak{\brak{12-x^2}-\brak{10-x^2}}
+\\
+= 8
+\end{multline}
+%
+which is true.
+\item For $x= 0$, if 
+\begin{align}
+\label{eq:2019_qp2_2_ab}
+\vec{R}\myvec{1 \\ a \\ b} = 6\myvec{1 \\ a \\ b}, 
+\end{align}
+%
+then show that 
+\begin{align}
+a+b = 5.
+\end{align}
+\solution For $x=0$, 
+\begin{align}
+\vec{R} = \vec{P}\vec{Q}\vec{P}^{-1},
+\end{align}
+%
+where $\vec{Q}$ is a diagonal matrix.  This is the eigenvalue decomposition of $\vec{R}$.  Thus, 
+\begin{align}
+\label{eq:2019_qp2_2_6eig}
+\vec{R}\myvec{1 \\ 2 \\ 3} = 6\myvec{1 \\ 2 \\ 3}, 
+\end{align}
+%
+where 
+\begin{align}
+\myvec{1 \\ 2 \\ 3}
+\end{align}
+%
+is the eigenvector corresponding to the eigenvalue $6$. Comparing with \eqref{eq:2019_qp2_2_6eig},
+\begin{align}
+a=2,b=3 \implies a+b = 5.
+\end{align}
+%
+\item For $x = 1$, verify if  there exists a  vector $\vec{y}$ for which $\vec{R}\vec{y} = \vec{0}$. 
+\\
+\solution 
+\begin{align}
+\vec{R}\vec{y} &= \vec{0} \implies \vec{P}\vec{Q}\vec{P}^{-1}\vec{y} = \vec{0}
+\nonumber \\
+\implies \vec{Q} \vec{z}&= \vec{0},
+\label{eq:2019_qp2_2_null}
+\end{align}
+%
+where 
+\begin{align}
+\label{eq:2019_qp2_2_yz}
+\vec{z} = \vec{P}^{-1}\vec{y} 
+\end{align}
+For $x=1$, \eqref{eq:2019_qp2_2_q} and \eqref{eq:2019_qp2_2_null} yield
+\begin{align}
+\label{eq:2019_qp2_2_x1}
+\myvec{2 & 1 & 1 \\ 0 & 4 & 0 \\ 1 & 1 & 6}\vec{z} &= \vec{0} 
+\end{align}
+Using row reduction,
+\begin{align}
+%\label{eq:2019_qp2_2_x1}
+\myvec{2 & 1 & 1 \\ 0 & 4 & 0 \\ 1 & 1 & 6} &\leftrightarrow
+\myvec{2 & 1 & 1 \\ 0 & 1 & 0 \\ 0 & 1 & 11} \leftrightarrow
+\myvec{1 & 0 & -5 \\ 0 & 1 & 0 \\ 0 & 1 & 11} \leftrightarrow
+\nonumber \\
+\myvec{1 & 0 & -5 \\ 0 & 1 & 0 \\ 0 & 0 & 11} &
+\end{align}
+%
+Thus, $\vec{Q}^{-1}$ exists and 
+\begin{align}
+\vec{z} = \vec{0} \implies \vec{y}= \vec{0}
+\end{align}
+upon substituting from \eqref{eq:2019_qp2_2_yz}.
+This implies that the null space of $\vec{R}$ is empty. 
+\end{enumerate}
+

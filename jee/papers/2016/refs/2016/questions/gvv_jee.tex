@@ -1,0 +1,432 @@
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+%
+
+\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+%\usepackage{stmaryrd}
+
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+
+
+
+\providecommand{\nCr}[2]{\,^{#1}C_{#2}} % nCr
+\providecommand{\nPr}[2]{\,^{#1}P_{#2}} % nPr
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+\providecommand{\gauss}[2]{\mathcal{N}\ensuremath{\left(#1,#2\right)}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+%\numberwithin{equation}{section}
+%\numberwithin{problem}{section}
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+
+
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Octave for Mathematics}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+%\author{Y Aditya, A Rathnakar and G V V Sharma$^{*}$% <-this % stops a space
+\author{G V V Sharma$^{*}$% <-this % stops a space
+\thanks{*The author is with the Department
+of Electrical Engineering, Indian Institute of Technology, Hyderabad
+502205 India e-mail:  gadepall@iith.ac.in.}% <-this % stops a space
+%\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+%\thanks{Manuscript received April 19, 2005; revised January 11, 2007.}}
+}
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% make the title area
+\maketitle
+
+%\tableofcontents
+
+%\begin{abstract}
+%%\boldmath
+%In this letter, an algorithm for evaluating the exact analytical bit error rate  (BER)  for the piecewise linear (PL) combiner for  multiple relays is presented. Previous results were available only for upto three relays. The algorithm is unique in the sense that  the actual mathematical expressions, that are prohibitively large, need not be explicitly obtained. The diversity gain due to multiple relays is shown through plots of the analytical BER, well supported by simulations. 
+%
+%\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%Cooperative diversity, decode and forward, piecewise linear
+%\end{IEEEkeywords}
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+%\newpage
+
+\begin{problem}
+For $x \in \mathbf{R}, x \neq 0, x \neq 1$, let $f_0(x) = \frac{1}{1-x}$ 
+and $f_{n+1}(x) = f_0\brak{f_n(x)}, n = 0, 1, \dots $.  Then find the value of
+$f_{100}(3) + f_1\brak{\frac{2}{3}}+f_2\brak{\frac{3}{2}}$.
+\end{problem}
+%
+\begin{problem}
+If $P = 
+\begin{pmatrix}
+\frac{\sqrt{3}}{2} & \frac{1}{2} \\
+-\frac{1}{2} & \frac{\sqrt{3}}{2}
+\end{pmatrix}, A = 
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+$ and $Q = P A P^{T}$, find $P^{T}Q^{2015} P$.
+\end{problem}
+\begin{problem}
+Evaluate $\sum_{r=1}^{15}r^2 \frac{\binom{15}{r}}{\binom{15}{r-1}}$.
+\end{problem}
+\begin{problem}
+If $\lim_{x \rightarrow \infty} \brak{1 + \frac{a}{x} - \frac{4}{x^2}}^{2x} = e^3$, find a.
+\end{problem}
+\begin{problem}
+The function
+%
+\begin{equation}
+f(x)=
+\begin{cases}
+-x & x < 1 \\
+a + \cos^{-1}\brak{x + b} & 1 \leq x \leq 2
+\end{cases}
+\end{equation}
+%
+is known to be differentiable at $x=1$.  What is the value of $\frac{a}{b}$?
+\end{problem}
+\begin{problem}
+The tangent at point $P$, for the curve $x = 4t^2+3, y = 8t^3-1$, with parameter $t \in \mathbf{R}$, meets the curve again at $Q$.  Find the coordinates of $Q$.
+\end{problem}
+
+\begin{problem}
+Find the minimum distance of a point on the curve $y = x^2 -4$ from the origin.
+\end{problem}
+\begin{problem}
+Sketch the region
+\begin{equation}
+A = \cbrak{\brak{x,y}\vert y \geq x^2-5x+4, x + y \geq 1, y \leq 0}.
+\end{equation}
+\end{problem}
+\begin{problem}
+A variable line drawn through the intersection of the lines $\frac{x}{3} + \frac{y}{4} = 1$ and $\frac{x}{4} + \frac{y}{3} = 1$ meets the coordinate axes at $A$ and $B, A \neq B$.  Sketch the locus of the midpoint of $AB$.
+\end{problem}
+\begin{problem}
+The point $\brak{2,1}$ is translated parallel to the line $L:x-y=4$ by $2\sqrt{3}$ units to yield the point $Q$.  If $Q$ lies in the 3rd quadrant, sketch the line passing through $Q$ and $\perp$ L.
+\end{problem}
+\begin{problem}
+A circle passes through $\brak{-2,4}$ and touches the $y-$axis at $\brak{0,2}$. Find out which of the following lines represents the diameter of the circle.
+\begin{enumerate}
+\item $4x+5y-6=0$
+\item $2x-3y +10 = 0$
+\item $3x+4y-3 = 0$
+\item $5x+2y+4 = 0$
+\end{enumerate}
+\end{problem}
+%
+\begin{problem}
+The eccentricity of a hyperbola satisfies the equation $9e^2-18e+5 = 0$. $\brak{5,0}$ is a focus and the corresponding directrix is $5x = 9$. Plot the hyperbola.
+\end{problem}
+%
+\begin{problem}
+Sketch the ellipse $\frac{x^2}{27} + \frac{y^2}{3} = 1$.
+\end{problem}
+\begin{problem}
+Find the minimum and maximum values of $4 + \frac{1}{2}\sin^22x - 2\cos^4 x, x \in \mathbf{R}$. 
+\end{problem}
+\begin{problem}
+Find the solution of the equation $\sqrt{2x+1}- \sqrt{2x-1} = 1, x \geq \frac{1}{2}$.
+\end{problem}
+\begin{problem}
+Let $z = 1 + a \i, a > 0$  be a complex number such that $z^3$ is a real number. Find $\sum_{k = 0}^{11}z^k$.
+\end{problem}
+\begin{problem}
+$A = 
+\begin{pmatrix}
+-4 & -1 \\
+3 & 1
+\end{pmatrix}
+$.
+Find the determinant of $A^{2016}-2A^{2015}-A^{2014}$.
+\end{problem}
+\begin{problem}
+Find the solutions of the following equations
+\begin{align*}
+n^2-3n-108 &= 0 \\
+n^2 + 5n -84 &= 0 \\
+n^2 + 2n - 80 &=0 \\
+n^2+n-110 &= 0
+\end{align*}
+Which of these satisfy $\frac{\nCr{n+2}{6}}{\nPr{n-2}{2}} = 11$?
+\end{problem}		
+\begin{problem}
+Sketch 
+\begin{equation*}
+f(x) = 
+\begin{cases}
+\frac{2x^2}{a} & 0 \leq x < 1\\
+a & 1 \leq x < \sqrt{2} \\
+\frac{2b^2 - 4b}{x^3} & \sqrt{2} \leq x < \infty
+\end{cases}
+\end{equation*}
+for $\brak{a,b}$ equal to 
+\begin{enumerate}
+\item $\brak{\sqrt{2}, 1 - \sqrt{3}}$
+\item $\brak{-\sqrt{2}, 1 + \sqrt{3}}$
+\item $\brak{\sqrt{2},-1+\sqrt{3}}$
+\item $\brak{-\sqrt{2}, 1 - \sqrt{3}}$
+\end{enumerate}
+In which case is  $f(x)$ continuous?
+\end{problem}
+\begin{problem}
+Sketch $f(x) = \sin^4x + \cos^4x$. Find the intervals within $\brak{0,\pi}$ when it is increasing.
+\end{problem}
+\begin{problem}
+The reflected line is given by $y+2x=1$. The surface is given by $7x-y+1=0$. Which of the following is the incident line?
+\begin{enumerate}
+\item $41x - 38y +38 = 0$
+\item $41x +25y - 25 = 0$
+\item $41x + 38y-38=0$
+\item $41x-25y+25=0$
+\end{enumerate}
+\end{problem}
+\begin{problem}
+The lines $x-y=1$ and $2x+y=3$ intersect at $O$.  A circle with centre at point $O$ passes through the point $\brak{-1,1}$. Sketch the following lines
+\begin{enumerate}
+\item $4x +y -3 = 0$
+\item $x + 4y+3 = 0$
+\item $3x - y  - 4 = 0$
+\item $x - 3y - 4 = 0$
+\end{enumerate}
+Which of these is a tangent to the circle? At what point?
+\end{problem}
+\begin{problem}
+$P$ and $Q$ are distinct points on the parabola $y^2 = 4x$, with parameters $t$ and $t_1$ respectively. The normal at $P$ passes through $Q$.  Find the minimum value of $t_1^2$.
+\end{problem}
+\begin{problem}
+The transverse axis of a hyperbola is along the major axis of the conic $\frac{x^2}{3}+ \frac{y^2}{4} = 1$. The vertices of the hyperbola are at the foci of this conic. The eccentricity of the hyperbola is $\frac{3}{2}$. Which of the points $\brak{0,2},\brak{\sqrt{5},2\sqrt{2}},\brak{\sqrt{10},2\sqrt{3}},\brak{5, 2\sqrt{3}}$, lie on the Hyperbola?
+\end{problem}
+\begin{problem}
+Find the minimum value of $\tan A + \tan B$, given that $ A+B = \frac{\pi}{6}, A>0,B>0$.
+\end{problem}
+%
+\begin{problem}
+Find $\theta$ for which $\frac{2+3\i sin \theta}{1 - 2\i \sin \theta}$ is purely imaginary.
+\end{problem}
+\begin{problem}
+Find the sum of all the solutions of 
+\begin{equation*}
+\brak{x^2-5x+5}^{x^2+4x-60}=1
+\end{equation*}
+\end{problem}
+\begin{problem}
+The sum of the first 10 terms of the series $\brak{1\frac{3}{5}}^2+\brak{2\frac{2}{5}}^2+\brak{3\frac{1}{5}}^2+4^2+\brak{4\frac{4}{5}}^2 + \dots $ is $\frac{16}{5}m$.  Find $m$.
+\end{problem}
+\begin{problem}
+$p = \lim_{x \rightarrow 0+}\brak{1+\tan^2\sqrt{x}}^{\frac{1}{2x}}$. Find  $\log p$.
+\end{problem}
+\begin{problem}
+$f(x) = \abs{\log 2 - \sin x}, x \in \mathbf{R}$ and $g(x)=f(f(x))$.  Which of the following is true?
+\begin{enumerate}
+\item $g$ is not differntiable at $x=0$
+\item $g^{\prime}(0) = \cos \brak{\log 2}$
+\item $g^{\prime}(0) = -\cos \brak{\log 2}$
+\item $g$ is differentiable at $x=0$ and $g^{\prime }(0) = -\sin \brak{\log 2}$.
+\end{enumerate}
+\end{problem}
+\begin{problem}
+Consider 
+\begin{equation*}
+f(x) = \tan^{-1}\sqrt{\brak{\frac{1+\sin x }{1-\sin x}}}, x \in \brak{0,\frac{\pi}{2}}
+\end{equation*}
+Sketch the normal to $f(x)$ at $x = \frac{\pi}{6}$. Does it pass through any of the points $\brak{0,0},\brak{0,\frac{2\pi}{3}},\brak{\frac{\pi}{6},0},\brak{\frac{\pi}{4},0}$?
+\end{problem}
+\begin{problem}
+Sketch $\frac{\cbrak{\brak{n+1}\brak{n+2}\dots \brak{3n}}}{n^{2n}}^{\frac{1}{n}}$ and verify if its limit at $n \rightarrow \infty $ is $\frac{18}{e^4},\frac{27}{e^2},\frac{9}{e^2}$ or $3\log 3 -2$.
+\end{problem}
+\begin{problem}
+Sketch the region 
+\begin{equation*}
+\cbrak{\brak{x,y}: y^2 \geq 2x, x^2+y^2 \leq 4x, x \geq 0, y \geq 0 }
+\end{equation*}
+\end{problem}
+\begin{problem}
+Two sides of a rhombus are along the lines $x-y+1 = 0$ and $7x-y-5=0$. Its diagonals intersect at $\brak{-1,-2}$. Find the vertices of the rhombus.
+\end{problem}
+\begin{problem}
+Sketch the locus of the centres of circles which touch the circle $x^2+y^2-8x-8y-4=0$ as well as the $x-$axis. 
+\end{problem}
+\begin{problem}
+One of the diameters of the  circle $x^2+y^2-4x+6y-12 = 0$ is a chord of a circle $S$. The centre of $S$ is at $\brak{-3,2}$. Sketch $S$ and find its radius.
+\end{problem}
+\begin{problem}
+$P$ is the nearest point of the parabola $y^2=8x$ to the centre $C$ of the circle $x^2+\brak{y+6}^2=1$.Sketch the circle with centre $P$ and passing through $C$.
+\end{problem}
+\begin{problem}
+The length of the latus rectum of a hyperbola is 8 and the length of its conjugate axis is half the distance between its foci.  Sketch the hyperbola and find its eccentricity.
+\end{problem}
+\begin{problem}
+A wire of length 2 units is cut into two parts which are bent respectively to form a square of side $x$ units and a circle of radius of 1 unit. Find $x$ if the sum of the areas of the square and the circle so formed is minimum.
+\end{problem}
+%\newpage
+%\section{Binary Modulation}
+%\input{chapter2} 
+%
+%\newpage
+%\section{$M$-ary Modulation}
+%\input{chapter3} 
+
+%\newpage
+%\section{BER in Rayleigh Flat Slowly Fading Channels}
+%\input{chapter4} 
+
+\end{document}
+
+

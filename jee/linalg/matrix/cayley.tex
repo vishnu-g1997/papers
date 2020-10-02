@@ -1,0 +1,58 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+
+\item Let
+\begin{align}
+\label{eq:cayley_mat_def}
+\vec{M} = \myvec{\sin^4\theta & -1-\sin^2\theta \\ 1+ \cos^2\theta & \cos^4\theta} = \alpha\vec{I} + \beta \vec{M}^{-1}
+\end{align}
+where $\alpha, \beta$ are real functions of $\theta$ and $\vec{I}$ is the identity matrix. Find the characteristic equation of $\vec{M}$.
+\\
+\solution \eqref{eq:cayley_mat_def} can be expressed as
+\begin{align}
+\vec{M}^2 -\alpha\vec{M} - \beta \vec{I} = 0
+\end{align}
+%
+which yields   the characteristic equation of $\vec{M}$ as
+\begin{align}
+\lambda^2 -\alpha\lambda - \beta  = 0
+\end{align}
+\item Find $\alpha$ and $\beta$.
+\\
+\solution
+Since the sum of the eigenvalues is equal to the trace and the determinant is the product of eigenvalues,
+\begin{align}
+ \alpha &= \sin^4\theta + \cos^4\theta 
+\\
+  \beta & = -\sin^4\theta \cos^4\theta + \brak{1+\sin^2\theta}\brak{ 1+ \cos^2\theta}
+\end{align}
+\item If 
+\begin{align}
+\alpha^{*} &= \min_{\theta}\alpha\brak{\theta}
+\\
+\beta^{*} &= \min_{\theta}\beta\brak{\theta}, 
+\end{align}
+find $\alpha^{*} + \beta^{*}$.
+\\
+\solution 
+\begin{align}
+\because  \alpha &= \sin^4\theta + \cos^4\theta = 1 - \frac{\sin^2 2\theta}{2},
+\\
+\alpha^{*} &= \frac{1}{2}, 
+\end{align}
+Similarly,
+\begin{align}
+ - \beta & = \sin^4\theta \cos^4\theta + \brak{1+\sin^2\theta}\brak{ 1+ \cos^2\theta}
+\\
+&=2 + \frac{\sin^2 2\theta}{4} + \frac{\sin^4 2\theta}{16}
+\\
+&= \brak{\frac{\sin^2 2\theta}{4}+\frac{1}{2}}^2+ \frac{7}{4} 
+\end{align}
+Thus,
+\begin{align}
+ \beta^{*} &= -\frac{37}{16}
+\\
+\implies \alpha^{*}+\beta^{*} &= -\frac{29}{16}
+\end{align}
+\end{enumerate}

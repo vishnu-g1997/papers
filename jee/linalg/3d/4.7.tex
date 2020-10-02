@@ -1,0 +1,51 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\item Let $\mbf{v}_1,\mbf{v}_2$ be the columns of $\mbf{C} = \vec{X}^T\vec{X}$.
+
+\item
+	Obtain $\mbf{u}_1,\mbf{u}_2$ from $\mbf{v}_1,\mbf{v}_2$ through the following equations. 
+	%
+\begin{align}
+\mbf{u}_1&= \frac{\mbf{v}_1}{\norm{\mbf{v}_1}}
+\\
+\hat{\mbf{u}}_2 &= \mbf{v}_2 - \brak{\mbf{v}_2,\mbf{u}_1}\mbf{u}_1
+\\
+\mbf{u}_2 &= \frac{\hat{\mbf{u}}_2}{\norm{\hat{\mbf{u}}_2}}
+\end{align}
+	%
+	This procedure is known as Gram-Schmidt orthogonalization.
+
+
+\item
+Stack the vectors $\mbf{u}_1,\mbf{u}_2$ in columns to obtain the matrix $\mbf{Q}$.  Show that $\mbf{Q}$ is orthogonal.  
+
+
+\item
+	From the Gram-Schmidt process, show that $\mbf{C}=\mbf{Q}\mbf{R}$, where $\mbf{R}$ is an upper triangular matrix.  This is known as the $\mbf{Q}-\mbf{R}$ decomposition.  
+
+
+\item
+	Find an orthonormal basis for $\vec{X}^T\vec{X}$ comprising of the eigenvectors.  Stack these orthonormal eigenvectors in a matrix $\mbf{V}$. This is known as {\em Orthogonal Diagonalization}.  
+
+\item
+	Find the singular values of $\vec{X}^T\vec{X}$.  The singular values are obtained by taking the square roots of its eigenvalues.  
+
+\item
+	Stack the singular values of $\vec{X}^T\vec{X}$ diagonally to obtain a matrix $\mbf{\Sigma}$.
+
+
+\item
+	Obtain the matrix $\vec{X}\mbf{V}$.  Verify if the columns of this matrix are orthogonal.
+
+
+\item
+	Extend the columns of $\vec{X}\mbf{V}$ if necessary, to obtain an orthogonal matrix $\mbf{U}$.
+
+
+\item
+	Find $\mbf{U}\mbf{\Sigma}\mbf{V}^T$.  Comment.
+
+
+\end{enumerate}
+

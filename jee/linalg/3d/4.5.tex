@@ -1,0 +1,102 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+
+\item Let
+\begin{align}
+L_1: \quad \vec{x} &= \myvec{1 \\ 0 \\ 0} + \lambda_1 \myvec{-1 \\ 2 \\ 2}
+\\
+L_2: \quad \vec{x} &=  \lambda_1 \myvec{2 \\-1 \\ 2}
+\end{align}
+%
+Given that  $L_3 \perp L_1, L_3 \perp L_2$, find $L_3$.
+\\
+\solution Let 
+\begin{align}
+L_3: \quad \vec{x} &= \vec{c}+ \lambda \vec{m}_3
+\end{align}
+% 
+Then
+\begin{align}
+\myvec{-1 & 2 & 2
+\\
+2 &-1 & 2}\vec{m}_3 = \vec{0}
+\end{align}
+%
+Row reducing the coefficient matrix,
+\begin{align}
+\myvec{-1 & 2 & 2
+\\
+2 &-1 & 2} &\leftrightarrow 
+\myvec{1 & -2 & -2
+\\
+0 &1 & 2} 
+\\
+\leftrightarrow 
+\myvec{1 & 0 & 2
+\\
+0 &1 & 2} 
+& \implies \vec{m}_3 = \myvec{2 \\ 2 \\ -1}
+\end{align}
+%
+Also, $L_1\perp L_2$, but $L_1 \cup L_2 = \phi$. The given information can be summarized as
+\begin{align}
+\label{eq:12-given1}
+L_1: \quad \vec{x} &= \vec{c}_1 + \lambda_1 \vec{m}_1
+\\
+L_2: \quad \vec{x} &=  \lambda_2 \vec{m}_2
+\\
+L_3: \quad \vec{x} &= \vec{c}_3 + \lambda \vec{m}_3
+\label{eq:12-given3}
+\end{align}
+%
+where
+\begin{align}
+\label{eq:12-given12}
+\vec{c}_1 = \myvec{1 \\ 0 \\ 0}, \vec{m}_1=  \myvec{-1 \\ 2 \\ 2},
+\vec{m}_2 = \myvec{2 \\-1 \\ 2}
+\end{align}
+The objective is to find $\vec{c}_3$.  Since $L_1 \cup L_3 \ne \phi, L_2 \cup L_3 \ne \phi$, from \eqref{eq:12-given1}-\eqref{eq:12-given3},
+\begin{align}
+\label{eq:12-isect13}
+\vec{c}_1 + \lambda_1 \vec{m}_1 &= \vec{c}_3 + \lambda_3 \vec{m}_3
+\\
+  \lambda_2 \vec{m}_2 &= \vec{c}_3 + \lambda_4 \vec{m}_3
+\label{eq:12-isect23}
+\end{align}
+%
+Using the fact that $L_1\perp L_2\perp L_3$, \eqref{eq:12-isect13}-\eqref{eq:12-isect23} can be expressed as
+\begin{align}
+%\label{eq:12-isect13}
+\vec{m}_1^T\vec{c}_1 + \lambda_1 \norm{\vec{m}}_1^2 &= \vec{m}_1^T\vec{c}_3 
+\\
+\vec{m}_2^T\vec{c}_1  &= \vec{m}_2^T\vec{c}_3 
+\\
+\vec{m}_3^T\vec{c}_1  &= \vec{m}_3^T\vec{c}_3 + \lambda_3 \norm{\vec{m}_3}^2
+\\
+0 &= \vec{m}_1^T\vec{c}_3 
+\\
+  \lambda_2 \norm{\vec{m}_2}^2 &= \vec{m}_2^T\vec{c}_3 
+\\
+0 &= \vec{m}_3^T\vec{c}_3  + \lambda_4 \norm{\vec{m}_3}^2
+%\label{eq:12-isect23}
+\end{align}
+%
+Simplifying the above, 
+\begin{align}
+ \lambda_1  &= -\frac{\vec{m}_1^T\vec{c}_1}{\norm{\vec{m}}_1^2} = \frac{1}{9}
+\\
+ \lambda_2  &= \frac{\vec{m}_2^T\vec{c}_1}{\norm{\vec{m}}_2^2} =\frac{2}{9}
+\end{align}
+%
+Substituting in \eqref{eq:12-isect13} and \eqref{eq:12-isect23},
+\begin{align}
+L_3: \quad \vec{x} &= \frac{2}{9}\myvec{4 \\ 1 \\ 1} + \lambda_3\myvec{2 \\ 2 \\ -1} \text{ or}
+\\
+L_3: \quad \vec{x} &= \frac{2}{9}\myvec{2 \\-1 \\ 2} + \lambda_3\myvec{2 \\ 2 \\ -1}
+\end{align}
+%
+The key concept in this question is that orthogonality of $L_1$ and $L_2$ doesnot mean that they intersect.  They are skew lines.
+\end{enumerate}
+%
+

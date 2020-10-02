@@ -1,0 +1,25 @@
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{./version_2/ee16b1013/graph.eps}
+\caption{Graph of ellipse $\displaystyle\frac{x^2}{27} +  \frac{y^2}{3} = 1$ }
+\end{figure}
+
+
+Octave code for this graph
+\begin{lstlisting}[frame=single]
+clear;
+close;
+clc;
+
+x=linspace (-3*sqrt(3),3*sqrt(3), 200) ;
+y=(3.0*(1-((x.*x)./27.0))).^0.5 ;
+z=-(3.0*(1-((x.*x)./27.0))).^0.5 ;
+
+plot (x,y,x,z) ;
+grid;
+axis([-10 10 -10 10])
+\end{lstlisting}
+%\end{document}
+

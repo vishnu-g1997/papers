@@ -1,0 +1,175 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+
+\item Let $\vec{P}$ be the point on the parabola
+\begin{equation}
+\label{eq:parab_circ_parab}
+\vec{x}^T\myvec{0 & 0 \\ 0 & 1}\vec{x} -\myvec{8 & 0 }\vec{x} 
+ = 0
+\end{equation}
+which is at a minimum distance from the centre $\vec{C}$ of the circle
+\begin{equation}
+\label{eq:parab_circ_circ}
+\vec{x}^T\vec{x} +\myvec{0 & 12 }\vec{x} 
+ = 1 
+\end{equation} 
+Find the equation of the circle passing through $\vec{C}$ and having its centre at $\vec{P}$. 
+\item Let $\vec{P}$ 
+be a point on the parabola
+\begin{equation}
+\vec{x}^T\myvec{1 & 0 \\ 0 & 0}\vec{x} +\myvec{0 & 4 }\vec{x} 
+ = 0
+\end{equation}
+%%
+Given that the distance of $\vec{P}$ from the centre of the circle
+\begin{equation}
+\vec{x}^T\vec{x} +\myvec{6 \\ 0 }\vec{x} + 8 = 0
+\end{equation}
+%
+is minimum.  Find the equation of the tangent to the parabola at $\vec{P}$.
+\item Find the eccentricity of the hyperbola whose length of the latus rectum is equal to 8 and the length of 
+its conjugate axis is equal to half the distance between its foci. 
+\item $\vec{P}$ and $\vec{Q}$ are two distinct points on the parabola
+\begin{equation}
+\vec{x}^T\myvec{0 & 0 \\ 0 & 1}\vec{x} -\myvec{4 & 0 }\vec{x} 
+ = 0
+\end{equation}
+with parameters $t$ and $t_1$ respectively.  If the normal at $\vec{P} $ passes through $\vec{Q}$, then find 
+the minimum value of $t_1^2$ using a descent algorithm.
+\item A tangent at a point on the ellipse 
+\begin{equation}
+\vec{x}^TV\vec{x} =51
+\end{equation}
+%
+where
+\begin{equation}
+V = \myvec{3 & 0 \\ 0 & 27}
+\end{equation}
+%
+meets the coordinate axes at  $\vec{A}$  and  $\vec{B}$.  If   $\vec{O}$  be the origin, find the minimum area 
+of $\triangle OAB$.
+\item Find the shortest distance between the line 
+\begin{equation}
+\myvec{1 & -1 }\vec{x}  =0
+\end{equation}
+%
+and the curve
+\begin{equation}
+\vec{x}^T\myvec{0 & 0 \\ 0 & 1}\vec{x} - \myvec{1 & 0}\vec{x} + 2 =0
+\end{equation}
+\item Let $S$ be the set of all complex numbers $z$ satisfying $\abs{z-2+\j} \ge \sqrt{5}$. If the complex number $z_0$ is such that $\frac{1}{\abs{z_0-1}}$ is the maximum of the set $\cbrak{\frac{1}{\abs{z-1}}: z \in S}$, find the principal argument of 
+\begin{align}
+\frac{4-z_0-\bar{z}_0}{z_0-\bar{z}_0+2\j}
+\end{align}
+\item Let $\omega \ne 1$ be a cube root of unity. Find the minimum of the set
+\begin{align}
+\abs{a+b\omega+c\omega^2}, 
+\end{align}
+%
+where $a,b,c$ are distinct nonzero integers.
+\item Let 
+\begin{align}
+\label{eq:mat_def}
+\vec{M} = \myvec{\sin^4\theta & -1-\sin^2\theta \\ 1+ \cos^2\theta & \cos^4\theta} = \alpha\vec{I} + \beta \vec{M}^{-1}
+\end{align}
+where $\alpha, \beta$ are real functions of $\theta$ and $\vec{I}$ is the identity matrix. If 
+\begin{align}
+\alpha^{*} &= \min_{\theta}\alpha\brak{\theta}
+\\
+\beta^{*} &= \min_{\theta}\beta\brak{\theta}, 
+\end{align}
+find $\alpha^{*} + \beta^{*}$.
+\item Find the minimum value of 
+\begin{align}
+\cos \brak{P+Q}
+\cos \brak{Q+R}
+\cos \brak{R+P}
+\end{align}
+%
+in $\triangle PQR$.
+\item Find the minimum value of $\alpha$ for which 
+\begin{align}
+4\alpha x^2 + \frac{1}{x} \ge 1, x > 0.
+\end{align}
+\item Let 
+\begin{align}
+S = S_1\cap S_2\cap S_3,
+\end{align}
+%
+where
+\begin{align}
+S_1 &= \cbrak{z\in C: \abs{z}< 4}
+\\
+S_2 &= \cbrak{z\in C: \Im\sbrak{\frac{z-1+\j\sqrt{3}}{1-\j\sqrt{3}}}},
+\\
+S_3 &= \cbrak{z\in C: \Re\brak{z} > 0}
+\end{align}
+Find
+\begin{align}
+\min_{z\in S}\abs{1-3\j-z}
+\end{align}
+\item A line 
+\begin{align}
+L: \myvec{m -1}\vec{x} = -3
+\end{align}
+passes through
+\begin{align}
+\vec{E} = \myvec{0\\3}
+\end{align}
+and 
+\begin{align}
+\vec{x}\myvec{0 & 0 \\ 0 & 1}\vec{x} - \myvec{16 & 0}\vec{x} = 0, 0 \le \myvec{0 & 1}\vec{x} \le 6
+\end{align}
+%
+at the point $\vec{F}$.  Find $m$ such that the area of $\triangle EFG$ is maximum.
+\item If $\abs{z-3-2j} \le 2$, find
+\begin{align}
+\min_{z}\abs{2z-6+5\j}
+\end{align}
+\item Find 
+\begin{align}
+\max_{z}\abs{Arg\brak{\frac{1}{1-z}}}
+\\
+s.t\quad \abs{z} = 1, z \ne 1.
+\end{align}
+\item Find the maximum value of the function 
+\begin{align}
+f(x) = 2x^3-15x^2+36x-48
+\end{align}
+on the set 
+\begin{align}
+A = \cbrak{x : x^2+20 \le 9x}
+\end{align}
+\item Find the minimum distance of a point on the curve 
+\begin{align}
+\vec{x}^T\myvec{1 & 0 \\ 0 & 1}\vec{x} + \myvec{0 -1}\vec{x}=4
+\end{align}
+%
+from the origin.
+\item Find 
+\begin{align}
+\min_{z}\abs{z+\frac{1}{2}}
+\\
+s.t\quad \abs{z} \ge 2
+\end{align}
+\item Find  the minimum value of
+\begin{align}
+\tan A + \tan B
+\\
+s.t \quad A+B=6,
+\\
+A, B \ge 0
+\end{align}
+\item Show that 
+\begin{multline}
+\sin A_1+\sin A_2 + \dots + \sin A_n 
+\\
+\le n \sin \brak{\frac{A_1+A_2+\dots + A_n}{n}}
+\\
+0 < A_i < \pi, i = 1, 2, \dots , n, n \ge 1
+\end{multline}
+\item Let $\vec{F}_1, \vec{F}_2$ be the foci of the standard ellipse with parameters $a$ and $b$.  If $\vec{P}$ be any point on the ellipse, find the maximum area of $\triangle PF_1F_2$.
+\item A circle $\norm{\vec{x}}=1$ intersects the $X-$ axis at $\vec{P}$ and $\vec{Q}$.  Another circle with centre $\vec{Q}$ intersects this circle above the $X-$ axis at $\vec{R}$ and the line segent $PQ$ at $\vec{S}$.  Find the maximum area of $\triangle QSR$.
+\item Let $\vec{M}$ be a fixed point in the first quadrant.   A line through $\vec{M}$ intersects the positive axes at $\vec{P}, \vec{Q}$ respectively. If $\vec{O}$ be the origin, find the minimum area of $\triangle OPQ$.
+\end{enumerate}

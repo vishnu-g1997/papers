@@ -1,0 +1,47 @@
+\begin{flushleft}
+Finding the first-derivative of the given equation gives 
+\[y' =-2 sin(2x) cos(2x)\]
+\\
+Plotting region of first-derivative i.e \(y' =-2 sin(2x) cos(2x)\)\\
+%\includegraphics[scale=0.8]{final.jpg}\\
+Observing the preceding graph , the interval in which graph \[y' >=0\]
+gives \[[0.79,1.57]  and  [2.36,3.14]\] \\
+Finally plotting the given equation \(f(x) = sin^4(x) + cos^4(x)\)\\
+%\includegraphics[scale=0.5]{one.jpg}
+%\\
+and then  shadding the region where graph increases
+%\includegraphics[scale=0.8]{graph.jpg}
+
+\end{flushleft}
+
+
+\vspace{78mm}
+
+\section{Code }
+\lstset{language=Octave}
+
+\begin{lstlisting}[frame=single]
+\end{lstlisting}
+
+
+\begin{lstlisting}[frame=single]
+clear;
+close;
+clc;
+x=linspace(0,pi,10000);
+y=-2*sin(2*x).*cos(2*x);
+
+
+plot (x,y);
+hold on;
+y1=y;
+y1(y1<0)=0;
+area(x,y1);
+grid minor;
+xlabel('0<x<pi'); 
+ylabel('Y-axis');
+title('y'' = -2sin(2x)cos(2x)');
+legend('Region where Derivative >=0');
+\end{lstlisting}
+
+%\end{document}

@@ -1,0 +1,24 @@
+%
+The given matrix expression can be simplified as
+%
+\begin{align}
+A^{2016}-2A^{2015}-A^{2014} = A^{2014}\brak{A^2-2A-I} 
+\end{align}
+%
+The characteristic equation for the matrix $A$ is obtained as
+%
+\begin{align}
+det(A-\lambda I) &= 0
+\\
+\Rightarrow \brak{\lambda +4}\brak{\lambda -1} +3 &= 0
+\\
+\Rightarrow \lambda^2 +3 \lambda -1 = 0
+\end{align}
+%
+From the Cayley-Hamilton theorem,
+%
+\begin{equation}
+A^2+3A-I = 0 \Rightarrow A^2-2A-I = -5A
+\end{equation}
+%
+Since $det(A) = -1, det(-5A) = -25$.

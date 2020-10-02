@@ -1,0 +1,49 @@
+The given circle can be expressed in standard form as
+%
+\begin{equation}
+\brak{x-4}^2 + \brak{y-4}^2 = 6^2
+\end{equation}
+%
+i.e., the cricle has centre at $\brak{4,4}$ and radius 6.
+Let $\brak{h,k}$ be the centre of a circle that touches the given circle. Since this  circle touches the $x$-axis, its radius is $k$. This circle can touch the given circle internally or externally.
+\begin{enumerate}
+\item {\em External:}  In this case, sum of radius of two circles is equal to distance between them.  Hence, 
+%
+\begin{align}
+|k|+6&=\sqrt{(h-4)^{2}+(k-4)^{2}}
+\\
+\Rightarrow k^2 + 12\abs{k} + 36 &= \brak{h-4}^2 + k^2 -8k + 16 \\
+\Rightarrow  12\abs{k} +8k &= \brak{h-4}^2 - 20\\
+\Rightarrow  k &= 
+\begin{cases}
+\frac{\brak{h-4}^2 - 20}{20} & k  > 0
+\\
+-\frac{\brak{h-4}^2 - 20}{4} & k < 0
+\end{cases}
+\end{align}
+%
+\item {\em Internal:} Modulus of difference of radius of two circles is equal to distance between them.  hence
+%
+\begin{align}
+\abs{|k|-6}&=\sqrt{(h-4)^{2}+(k-4)^{2}}
+\\
+\Rightarrow k^2 - 12\abs{k} + 36 &= \brak{h-4}^2 + k^2 -8k + 16 \\
+\Rightarrow  -12\abs{k} +8k &= \brak{h-4}^2 - 20\\
+\Rightarrow  k &= 
+\begin{cases}
+\frac{\brak{h-4}^2 - 20}{20} & k  < 0
+\\
+-\frac{\brak{h-4}^2 - 20}{4} & k > 0
+\end{cases}
+\end{align}
+%
+\end{enumerate}
+%
+Both the above cases can be combined to obtain the locus as the curves
+%
+\begin{align}
+y &= \frac{\brak{x-4}^2 }{20} - 1
+\\
+y &= 5 - \frac{\brak{x-4}^2 }{4} 
+\end{align}
+%

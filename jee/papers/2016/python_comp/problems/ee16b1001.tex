@@ -1,0 +1,24 @@
+From the given information, 
+\begin{align}
+\label{one_1}
+f_{1}(x)&=f_{0}(f_{0}(x))=\frac{1}{1-\frac{1}{1-x}}=\frac{1-x}{-x}, \\
+\label{one_2}
+f_{2}(x)&=f_{0}(f_{1}(x))=\frac{1}{1-\frac{1-x}{-x}}=x, \\
+\label{one_3}
+f_{3}(x)&=f_{0}(f_{2}(x))=\frac{1}{1-x}=f_{0}(x), \\
+\label{one_4}
+f_{4}(x)&=f_{0}(f_{3}(x))=\frac{1}{1-\frac{1}{1-x}}=\frac{1-x}{-x}=f_{1}(x)
+\end{align}
+The function repeats in a similar manner for other values of $n$ as well.
+From \eqref{one_1},\eqref{one_2}, \eqref{one_3} and \eqref{one_4},
+\begin{align}
+  f_{100}(3)&=f_{1}(3)=\frac{1-3}{-3}=\frac{2}{3}\\
+  f_{1}\left(\frac{2}{3}\right)&=\frac{1-\frac{2}{3}}{-\frac{2}{3}}=\frac{-1}{2}\\
+  f_{2}\left(\frac{3}{2}\right)&=\frac{3}{2}
+\end{align}
+resulting in
+%
+\begin{equation}
+f_{100}(3) + f_{1}\left(\frac{2}{3}\right) + f_{2}\left(\frac{3}{2}\right)=\frac{2}{3} + \frac{-1}{2} + \frac{3}{2}=\frac{5}{3}	
+\end{equation}
+%

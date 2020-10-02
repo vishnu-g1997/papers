@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Trigonometry}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Inverse Trigonometric Functions}{9}{section.2}% 
+\contentsline {section}{\numberline {3}Functions}{12}{section.3}% 
+\contentsline {section}{\numberline {4}Quadratic Equations and Inequations}{18}{section.4}% 
+\contentsline {section}{\numberline {5}Indefinite integrals}{25}{section.5}% 
+\contentsline {section}{\numberline {6}Differential Equations}{28}{section.6}% 
+\contentsline {section}{\numberline {7}Application of Derivatives}{34}{section.7}% 
+\contentsline {section}{\numberline {8}Differentiation}{48}{section.8}% 
+\contentsline {section}{\numberline {9}Limits, Continuity and Differentiability}{52}{section.9}% 
+\contentsline {section}{\numberline {10}Definite integrals}{65}{section.10}% 

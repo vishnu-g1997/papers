@@ -1,0 +1,92 @@
+To solve this problem we plot the graph of \(f(x)\) for all the four cases using GNU Octave. \\~\\
+
+\section*{GRAPHS}
+%\vspace{2cm}
+%{\huge\bfseries {\color{BrickRed} ---------------------} \(f(x) = \frac{2x^2}{a}\)}\\
+%{\huge\bfseries {\color{Cerulean} ---------------------} \(f(x) = a\)}\\
+%{\huge\bfseries {\color{NavyBlue} ---------------------} \(f(x) = \frac{2b^2 - 4b}{x^3}\)}
+%\par
+%\includegraphics[scale = 1]{P_19_1.eps}\\
+\(f(x)\) is a continuous function when \(a = \sqrt{2}\) and \(b= 1 - \sqrt{3}\). \par
+%\includegraphics[scale = 1]{P_19_2.eps}\\
+\(f(x)\) is a discontinuous function when \(a = - \sqrt{2}\) and \(b= 1 + \sqrt{3}\).\\ It is discountinuous at \(x = \sqrt{2}\). \par
+%\includegraphics[scale = 1]{P_19_3.eps}\\
+\(f(x)\) is a discontinuous function when \(a = \sqrt{2}\) and \(b= -1 + \sqrt{3}\).\\ It is discountinuous at \(x = \sqrt{2}\). \par
+%\includegraphics[scale = 1]{P_19_4.eps}\\
+\(f(x)\) is a discontinuous function when \(a = - \sqrt{2}\) and \(b= 1 - \sqrt{3}\).\\ It is discountinuous at \(x = \sqrt{2}\). \par
+
+\section*{GNU Octave's CODE}
+\subsection{For 1)}
+\begin{lstlisting}[frame = single]
+\end{lstlisting}
+\subsection{For 2)}
+\begin{lstlisting}[frame = single]
+clear;
+close;
+clc;
+
+a = -sqrt(2); b = 1 + sqrt(3);
+x1 = linspace(0, 1, 1000);
+x2 = linspace(1, sqrt(2), 1000);
+x3 = linspace(sqrt(2), 5, 100000);
+
+y1 = 2.*(x1.^2)./a;
+y2 = a;
+y3 = (2*(b^2) - 4*b)./(x3.^3);
+
+plot(x1, y1, "2", x2, y2, "5", x3, y3, "3");
+grid minor;
+title("Problem 19\n 
+     2.)  a = -sqrt(2); b = 1 + sqrt(3)\n
+     f(x) is Discontinuous");
+xlabel("x");
+ylabel("f(x)");
+\end{lstlisting}
+\subsection{For 3)}
+\begin{lstlisting}[frame = single]
+clear;
+close;
+clc;
+
+a = sqrt(2); b = -1 + sqrt(3);
+x1 = linspace(0, 1, 1000);
+x2 = linspace(1, sqrt(2), 1000);
+x3 = linspace(sqrt(2), 5, 100000);
+
+y1 = 2.*(x1.^2)./a;
+y2 = a;
+y3 = (2*(b^2) - 4*b)./(x3.^3);
+
+plot(x1, y1, "2", x2, y2, "5", x3, y3, "3");
+grid minor;
+title("Problem 19\n 
+     3.)  a = sqrt(2); b = -1 + sqrt(3)\n
+     f(x) is Discontinuous");
+xlabel("x");
+ylabel("f(x)");
+\end{lstlisting}
+\subsection{For 4)}
+\begin{lstlisting}[frame = single]
+clear;
+close;
+clc;
+
+a = -sqrt(2); b = 1 - sqrt(3);
+x1 = linspace(0, 1, 1000);
+x2 = linspace(1, sqrt(2), 1000);
+x3 = linspace(sqrt(2), 5, 100000);
+
+y1 = 2.*(x1.^2)./a;
+y2 = a;
+y3 = (2*(b^2) - 4*b)./(x3.^3);
+
+plot(x1, y1, "2", x2, y2, "5", x3, y3, "3");
+grid minor;
+title("Problem 19\n 
+     4.)  a = -sqrt(2); b = 1 - sqrt(3)\n
+     f(x) is Discontinuous");
+xlabel("x");
+ylabel("f(x)");
+\end{lstlisting}
+%\end{flushleft}
+%\end{document}

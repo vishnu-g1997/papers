@@ -1,0 +1,1673 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{caption}
+%\usepackage{multirow}
+%\usepackage{multicolumn}
+%\usepackage{subcaption}
+%\doublespacing
+\singlespacing
+\usepackage{csvsimple}
+\usepackage{amsmath}
+\usepackage{multicol}
+%\usepackage{enumerate}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+\usepackage{newfloat}
+%\usepackage{syntax}
+\usepackage{listings}
+%\usepackage{iithtlc}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{mathtools}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{enumerate}	
+\usepackage{enumitem}
+\usepackage{amsmath}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{hyperref}
+%\usepackage[framemethod=tikz]{mdframed}
+\usepackage{listings}
+    %\usepackage[latin1]{inputenc}                                 %%
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+
+
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+
+%\usepackage{stmaryrd}
+
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+%\lstset{
+%language=C,
+%frame=single, 
+%breaklines=true
+%}
+
+%\lstset{
+	%%basicstyle=\small\ttfamily\bfseries,
+	%%numberstyle=\small\ttfamily,
+	%language=Octave,
+	%backgroundcolor=\color{white},
+	%%frame=single,
+	%%keywordstyle=\bfseries,
+	%%breaklines=true,
+	%%showstringspaces=false,
+	%%xleftmargin=-10mm,
+	%%aboveskip=-1mm,
+	%%belowskip=0mm
+%}
+
+%\surroundwithmdframed[width=\columnwidth]{lstlisting}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+ 
+
+\begin{document}
+%
+\tikzstyle{block} = [rectangle, draw,
+    text width=3em, text centered, minimum height=3em]
+\tikzstyle{sum} = [draw, circle, node distance=3cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+
+\providecommand{\nCr}[2]{\,^{#1}C_{#2}} % nCr
+\providecommand{\nPr}[2]{\,^{#1}P_{#2}} % nPr
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\Vert#1\right\Vert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\numberwithin{equation}{section}
+%\numberwithin{problem}{subsection}
+%\numberwithin{definition}{subsection}
+\makeatletter
+\@addtoreset{figure}{section}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\thesection}
+
+
+%\numberwithin{figure}{subsection}
+
+%\numberwithin{equation}{subsection}
+%\numberwithin{equation}{section}
+%\numberwithin{equation}{problem}
+%\numberwithin{problem}{subsection}
+\numberwithin{problem}{section}
+%%\numberwithin{definition}{subsection}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
+\makeatletter
+\@addtoreset{table}{section}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+\let\StandardTheTable\thetable
+\let\vec\mathbf
+%%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+%\renewcommand{\thefigure}{\theproblem}
+
+%%\numberwithin{figure}{section}
+
+%%\numberwithin{figure}{subsection}
+
+
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+
+\vspace{3cm}
+
+\title{ 
+%	\logo{
+The Conic Sections
+%	}
+}
+
+\author{ G V V Sharma$^{*}$% <-this % stops a space
+	\thanks{*The author is with the Department
+		of Electrical Engineering, Indian Institute of Technology, Hyderabad
+		502285 India e-mail:  gadepall@iith.ac.in. All content in this manual is released under GNU GPL.  Free and open source.}
+	
+}	
+
+\maketitle
+
+%\tableofcontents
+
+\bigskip
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+
+
+\begin{abstract}
+	Solved problems from JEE mains papers related to Conic Sections in coordinate geometry are 
+available in this document.  These problems are solved using linear algebra/matrix analysis.
+\end{abstract}
+\begin{enumerate}[label=\arabic*]
+\numberwithin{equation}{enumi}
+
+\item Find the point of intersection of the tangents at the ends of the latusrectum of the parabola
+\begin{align} 
+\vec {x}^T \myvec{0 & 0 \\ 0 & 1} \vec {x}=\myvec{4&0}\vec {x}.
+\end{align} 
+\item An ellipse has eccentricity $\frac{1}{2}$ and one focus at the point $\vec{P}=\myvec{\frac{1}{2}\\1}$. Its one directrix is the common tangent, nearer to the point $\vec{P}$, to the circle 
+    \begin{align}
+    \vec {x}^T \vec {x} =1
+    \end{align} and the hyperbola 
+    \begin{align}
+    \vec {x}^T \myvec{1& 0 \\0 &-1}\vec {x}=1.
+    \end{align} Find the equation of the ellipse.
+\item The equation 
+    \begin{align}
+    \vec {x}^T \myvec  {\frac{1}{1-r} & 0 \\ 0 &-\frac {1}{1+r}}\vec{x} = 1, r>1
+    \end{align} represents
+    \begin{enumerate}
+    \item an ellipse
+    \item a hyperbola
+    \item a circle
+    \item none of these
+    \end{enumerate} 
+    \item Each of the four inequalities given below defines a region in the xy plane. One of these four regions does not have the following property. For any two points \myvec{x_1\\y_1} and \myvec{x_2\\y_2} in the region, the point \myvec{\frac{x_1+x_2}{2}\\ \frac{y_1+y_2}{2}} is also in the region. Find the inequality defining this region.
+    \begin{enumerate}
+    \item $\vec {x}^T\myvec{1&0 \\0 &2}\vec {x} \leq1$
+    \item Max$\myvec{\abs{x} \\ \abs{y}} \leq1$
+    \item $\vec {x}^T \myvec{1&0 \\0 &-1}\vec {x} \leq1$
+    \item $\vec {x}^T \myvec{0 &0 \\ 0& 1 } + \myvec{-1& 0}\vec {x}\leq0$
+    \end{enumerate}    
+\item The equation 
+\begin{align}
+\vec{x}^T \myvec{2&0 \\ 0& 3}\vec{x} + \myvec{-8&-18}\vec{x}+35=k
+\end{align} represents
+    \begin{enumerate}
+    \item no locus if $k>0$
+    \item an ellipse if$k<0$
+    \item a point if k=0
+    \item a hyperbola if $k>0$
+    \end{enumerate}
+\item Let E be the ellipse 
+\begin{align}
+\vec {x}^T \myvec {\frac{1}{9}&0 \\ 0&\frac{1}{4}}\vec {x}=1
+\end{align} and C be the circle 
+\begin{align}
+\vec {x}^T \vec {x}=9.
+\end{align} let $\vec{P}$ and $\vec{Q}$ be the points  \myvec{1\\2} and \myvec{2\\1} respectively. Then
+    \begin{enumerate}
+    \item Q lies inside C but outside E.
+    \item Q lies outside both C and E. 
+    \item P lies inside both C and E. 
+    \item P lies inside C but outside E.
+    \end{enumerate}
+\item Consider a circle with its center lying on the focus of the parabola 
+	\begin{align}
+	\vec {x}^T \myvec {0&0 \\ 0&1}\vec {x}=\myvec{2p&0}\vec{x}
+	\end{align}
+	such that it touches the directrix of the parabola. Then find the point of intersection.
+\item Find the radius of the circle passing through the foci of the ellipse 
+	\begin{align}
+	\vec {x}^T \myvec {\frac{1}{16}&0 \\ 0&\frac{1}{9}}\vec {x}=1,
+	\end{align} and having its centre at \myvec{0\\3}. 
+\item Let $\vec{P} = \myvec{a\sec\theta \\ b\tan\theta}$
+	and $\vec{Q}=\myvec{a\sec\phi \\ b\tan\phi}$ where $\theta+\phi=\frac{\pi}{2}$, be two points on  the hyperbola 
+    \begin{align}
+    \vec{x}^T \myvec{ \frac{1}{a^2}&0 \\ 0&\frac{-1}{b^2}}\vec {x}=1
+    \end{align}. If \myvec{h\\k} is the point of intersection of the normals at $\vec{P}$ and 
+    $\vec{Q}$, then find k.
+\item If 
+	\begin{align}
+    \myvec{1&0}\vec {x}=9
+    \end{align} is the chord of contact of the hyperbola 
+    \begin{align}
+    \vec {x}^T \myvec {1&0 \\ 0&-1}\vec {x}=9
+    \end{align} then find the equation of the corresponding pair of tangents.
+\item The curve describes parametrically by 
+    \begin{align}
+    \myvec{1&0}\vec {x}=t^2+t+1\\
+    \myvec{0&1}\vec {x}=t^2-t+1
+    \end{align} represents
+    \begin{enumerate}
+    \item a pair of straight lines 
+    \item an ellipse
+    \item a parabola
+    \item a hyperbola
+    \end{enumerate}
+\item If 
+	\begin{align}
+    \myvec{1&1}\vec{x}=k
+    \end{align} is normal to 
+    \begin{align}
+    \vec {x}^T\myvec{0 & 0 \\0 & 1} \vec{x}=\myvec{12&0}\vec{x},
+    \end{align} then find k.
+\item If the line 
+    \begin{align}
+    \myvec{1&0}\vec{x}-1=0
+    \end{align}is the directrix of the parabola 
+    \begin{align}
+    \vec{x}^T \myvec{0 & 0 \\0 & 1}\vec{x}-\myvec{k&0}\vec{x}+8=0,
+    \end{align}then find k. 
+\item Find the equation of the common tangent touching the circle 
+    \begin{align}
+    \vec {x}^T\myvec{1 & 0 \\0 & 1}\vec{x}-\myvec{6&0}\vec{x} =0
+    \end{align} and the parabola 
+    \begin{align}\vec{x}^T \myvec{0 & 0 \\0 & 1}\vec{x}=\myvec{4&0}\vec{x}.
+    \end{align}
+\item Find the equation of the directrix of the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0 & 0 \\0 & 1}\vec{x}+\myvec{4&4}\vec{x}+2=0.
+    \end{align}
+\item If $a>2b>0$ then the positive value of m for which 
+	\begin{align}
+    \myvec{0&1}\vec {x}=\myvec{m&0}\vec {x}-b\sqrt{1+m^2}
+    \end{align} is the common tangent to 
+    \begin{align}
+    \vec {x}^T\myvec{1 & 0 \\0 & 1}\vec{x}=b^2\\ 
+    \vec {x}^T\myvec {1 & 0 \\0 &1}\vec{x}+\myvec{2a&0}\vec{x}=a^2-b^2
+    \end{align} is 
+    \begin{enumerate}
+    \item $\frac{2b}{\sqrt{a^2-4b^2}}$
+    \item $\frac{\sqrt{a^2-4b^2}}{2b}$
+    \item $\frac{2b}{a-2b}$
+    \item $\frac{b}{a-2b}$
+    \end{enumerate}
+\item The locus of the mid-point of the line segment joining the focus to a moving point on the 			parabola  
+    \begin{align} 
+    \vec {x}^T\myvec{0 & 0 \\0 & 1}\vec {x}=\myvec{4a&0}\vec{x}
+    \end{align} is another parabola with directrix 
+    \begin{enumerate}
+    \item $\myvec{1&0}\vec{x}=-a$
+    \item $\myvec{1&0}\vec{x}=\frac{-a}{2}$
+    \item $\myvec{1&0}\vec{x}=0$
+    \item $\myvec{1&0}\vec{x}=\frac{a}{2}$
+    \end{enumerate}
+\item Find the equation of the common tangent to the curves 
+	\begin{align}
+    \vec{x}^T \myvec{0 & 0 \\0 & 1}\vec{x}=\myvec{8&0}\vec{x}\\
+    \vec{x}^T \myvec{0 & 0 \\ 1& 0}\vec{x}=-1
+    \end{align}
+\item Find the area of the quadrilateral formed by the tangents at the end points of latusrectum to the ellipse
+    \begin{align}
+    \vec{x}^T \myvec{\frac{1}{9} & 0 \\0 & \frac{1}{5}} \vec{x}=1.
+    \end{align}
+\item The focal chord to
+    \begin{align}
+    \vec{x}^T \myvec{0 & 0 \\0 & 1}\vec{x}=\myvec{16&0}\vec{x}
+    \end{align}
+    is tangent to
+    \begin{align}
+    \vec {x}^T\vec{x}-\myvec{12&0}\vec{x}+36=0
+    \end{align} then the possible values of the slope of the chord,are 
+    \begin{enumerate}
+    \item $\myvec{-1\\1}$
+    \item $\myvec{-2\\2}$
+    \item $\myvec{-2\\ -\frac{1}{2}}$
+    \item $\myvec{2\\ -\frac{1}{2}}$
+    \end{enumerate}
+\item For hyperbola 
+    \begin{align} 
+    \vec {x}^T\myvec {\frac{1}{\cos^2\alpha} & 0 \\0 & -\frac{1}{\sin^2\alpha}} \vec{x}=1
+    \end{align} which of the following remains constant with change in $'\alpha'$
+    \begin{enumerate}
+    \item abscissae of vertices
+    \item abscissae of foci
+    \item eccentricity
+    \item directrix
+    \end{enumerate}
+\item If tangents are drawn to the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&2}\vec{x}=2
+    \end{align}
+    then the locus of the mid point of the intercept made by the tangents between the coordinate axes 	is
+    \begin{enumerate}
+    \item$\frac{1}{2x^2}+\frac{1}{4y^2}=1$
+    \item $\frac{1}{4x^2}+\frac{1}{2y^2}=1$
+    \item $\frac{x^2}{2}+\frac{y^2}{4}=1$
+    \item $\frac{x^2}{4}+\frac{y^2}{2}=1$
+    \end{enumerate}
+\item Find the angle between the tangents drawn from the points\myvec{1\\4}to the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0 & 0 \\0 & 1}\vec{x}=\myvec{4&0}\vec{x} 
+    \end{align}
+\item If the line 
+    \begin{align}
+    \myvec{2&\sqrt{6}}\vec{x}=2
+    \end{align} touches the hyperbola
+    \begin{align}
+    \vec{x}^T\myvec{1 & 0 \\0 & -2} \vec{x}=4
+    \end{align}then find the point of contact.
+\item The minimum area of the triangle is formed by the tangent to the 
+    \begin{align}
+    \vec {x}^T \myvec{\frac{1}{a^2}& 0 \\0 & \frac{1}{b^2}} \vec{x}=1
+    \end{align} the coordinate axes is 
+    \begin{enumerate}
+    \item ab sq.units
+    \item $\frac{a^2+b^2}{2}$sq.units 
+    \item $\frac{(a+b)^2}{2}$sq.units 
+    \item $\frac{a^2+ab+b^2}{3}$sq.units
+    \end{enumerate}
+\item Tangent to the curve
+    \begin{align}
+    \myvec{0&1}\vec{x}= \vec{x}^T\myvec {1 & 0 \\0 & 0}\vec{x}+ 6
+    \end{align} 
+    at the points $\myvec{1 \\ 7}$touches the circle 
+    \begin{align}
+    \vec{x}^T \vec{x}+\myvec{16&12}\vec{x}+c=0
+    \end{align}at a point $\vec{Q}$.Then the coordinates of $\vec{Q}$ are 
+    \begin{enumerate}
+    \item \myvec{-6\\-11}
+    \item \myvec{-9\\-13}
+    \item \myvec{-10\\-15}
+    \item \myvec{-6\\-7}
+    \end{enumerate}
+    \item The axis of a parabola is along the line
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{1&0}\vec{x}
+    \end{align} and the distance of its vertex and focus from the origin are $\sqrt{2}$ and 	 $2\sqrt{2}$ respectively.If vertex and focus both lies in the first quadrant,then find the equation of parabola.
+    \item A hyperbola, having the transverse axis of length $2\sin\theta$,is confocal with the  	ellipse 
+    \begin{align} 
+    \vec{x}^T\myvec {3&0\\0&4 }\vec{x}=12.
+    \end{align}Then find its equation.
+    \item Let a and b be non zero real numbers,then the equation
+    \begin{align}
+    (\vec{x}^T\myvec{ a&0\\0&b }\vec{x}+c)(\vec{x}^T\myvec{1&0\\-5&6} \vec{x})=0
+    \end{align}represents
+    \begin{enumerate}
+    \item four straight lines, when c=0 and a,b are of the same sign 
+    \item two straight lines and a circle ,when a=b,and c is of sign opposite to that of a
+    \item two straight lines and a hyperbola ,when a and b are of the same sign and c is of sign 		opposite to that of a 
+    \item a circle and an ellipse , when a and b are of the same sign and c is of sign opposite to that of a
+    \end{enumerate}
+    \item Consider a branch  of the hyperbola 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&-2}\vec{x}+\myvec{-2\sqrt{2}&-4\sqrt{2}}\vec{x}-6=0
+    \end{align} with the vertex at the point $\vec{A}$.Let $\vec{B}$ be the one of the end points of 	its latusrectum.If $\vec{C}$ is the focus of the hyperbola nearer to the point $\vec{A}$,find the area of the triangle ABC.
+    \item The line passing through the extremity A of the major axis and extremity B of the minor axis of the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&9 }\vec{x} =9
+    \end{align}
+    meets its auxiliary circle at the point $\vec{M}$ then the area of the triangle with vertices at 	A, M and the origin O is
+    \begin{enumerate}
+    \item $\frac{31}{10}$
+    \item $\frac{29}{10}$
+    \item $\frac{21}{10}$
+    \item $\frac{27}{10}$
+    \end{enumerate}
+    \item The normal at a point $\vec{P}$ on the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&4}\vec{x}=16
+    \end{align} meets the x-axis at $\vec{Q}$. If $\vec{M}$ is the mid point of the line segment PQ, then the locus of $\vec{M}$ intersects the latusrectums of the given ellipse at the points
+    \begin{enumerate}
+    \item $\myvec{\pm\frac{3\sqrt{5}}{2}\\\pm\frac{2}{7}}$
+    \item $\myvec{\pm\frac{3\sqrt{5}}{2}\\ \pm\sqrt{\frac{19}{4}}}$
+    \item $\myvec{\pm 2\sqrt{3}\\ \pm\frac{1}{7}}$
+    \item $\myvec{\pm 2\sqrt{3}\\ \pm\frac{4\sqrt{3}}{7}}$
+    \end{enumerate}
+    \item The locus of the orthocentre of the triangle formed by the lines 
+    \begin{align}
+    \myvec{(1+p)&-p}\vec{x}+p(1+p)=0\\
+    \myvec{(1+q)&-q}\vec{x}+q(1+q)=0\\
+    \myvec{0&1}\vec{x}=0
+    \end{align}, where $p\neq q$ is 
+    \begin{enumerate}
+    \item a hyperbola
+    \item a parabola
+    \item an ellipse
+    \item a straight line
+    \end{enumerate}
+    \item Let $\vec{P}=\myvec{6\\3}$ be a points on the hyperbola 
+    \begin{align}
+    \vec{x}^T\myvec {\frac{1}{a^2}&0\\0&-\frac{1}{b^2}}\vec{x} =1.
+    \end{align} If the normal at the points $\vec{P}$ intersects the x-axis at \myvec{9\\0}, then find the eccentricity of the hyperbola.
+    \begin{enumerate}
+    \item $\sqrt{\frac{5}{2}}$
+    \item $\sqrt{\frac{3}{2}}$
+    \item $\sqrt{2}$
+    \item  $\sqrt{3}$
+    \end{enumerate}
+    \item Let\myvec{x\\y}be any point on the parabola 
+    \begin{align} \vec{x}^T \myvec {0 & 0 \\0 & 1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align}. Let $\vec{P}$ be the points that divides the lines segment from \myvec{0\\0} to 	\myvec{x\\y} in the ratio 1:3. Then the locus of P is 
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{1 & 0 \\0 & 0}\vec{x}= \myvec{0&1}\vec{x}$
+    \item $\vec{x}^T \myvec{0 & 0 \\0 & 1 } \vec{x}=\myvec{2&0}\vec{x}$ 
+    \item $\vec{x}^T\myvec{0 & 0 \\0 & 1  } \vec{x}=\myvec{1&0}\vec{x}$ 
+    \item $\vec{x}^T \myvec{1 & 0 \\0 & 0}\vec{x}= \myvec{0&2}\vec{x}$ 
+    \end{enumerate}
+    \item The ellipse $\vec{E_1}$:
+    \begin{align}\vec{x}^T\myvec{\frac{1}{9} & 0 \\0 & \frac{1}{4}}\vec{x}=1.
+    \end{align}is inscribed in a rectangle R whose sides are parallel to the coordinate axes.Another ellipse $\vec{E_2}$ passing through the points $\myvec{0\\4} $circumscribes the rectangle R. Find the eccentricity of the ellipse $\vec{E_2}$.
+    \item The common tangents to the circle 
+    \begin{align}\vec{x}^T\vec{x}=2
+    \end{align} and the parabola
+    \begin{align}\vec{x}^T \myvec{0 & 0 \\0 & 1} \vec{x}=\myvec{8&0}\vec{x}
+    \end{align} touch the circle at the points $\vec{P}, \vec{Q}$ and the parabola at the points 			$\vec{R},\vec{S}$. Then find the area of the quadrilateral PQRS.
+    \item The number of values of c such that the straight line
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{4&0}\vec{x}+c
+    \end{align} touches the curve
+    \begin{align}
+    \vec{x}^T\myvec {\frac{1}{4}& 0 \\0 & 1} \vec{x}=1
+    \end{align}is 
+    \begin{enumerate}
+    \item 0
+    \item 1
+    \item 2
+    \item infinite.
+    \end{enumerate}
+    \item If $\vec{P}=\myvec{x\\y}, \vec{F_1}=\myvec{3\\0}, \vec{F_2}=\myvec{-3\\0}$and
+    \begin{align}
+    \vec{x}^T\myvec{16& 0 \\0 & 25} \vec{x}=400,\end{align}then $\vec{PF_1+PF_2} $equals 
+    \begin{enumerate}
+    \item 8
+    \item 6
+    \item 10
+    \item 12
+    \end{enumerate}
+    \item On the ellipse
+    \begin{align} 
+    \vec{x}^T\myvec{4& 0 \\0 & 9} \vec{x}=1,
+    \end{align} the points at which the tangents are parallel to the line 
+    \begin{align}
+    \myvec{8&0}\vec{x}=\myvec{0&9}\vec{x}
+    \end{align} are 
+    \begin{enumerate}
+    \item \myvec{\frac{2}{5}  \\ \frac{1}{5}}
+    \item \myvec{-\frac{2}{5}\\ \frac{1}{5}}
+    \item \myvec{-\frac{2}{5}\\-\frac{1}{5}}
+    \item \myvec{\frac{2}{5}\\-\frac{1}{5})}
+    \end{enumerate}
+    \item The equation of the common tangents to the parabola 
+    \begin{align}
+    \myvec{0&1}\vec{x}= \vec{x}^T\myvec{1& 0 \\0 & 0} \vec{x} 
+    \end{align} and 
+    \begin{align}
+    \vec{x}^T\myvec{ 1& 0 \\4 & 1 } \vec{x}=4
+    \end{align} is/are 
+    \begin{enumerate}
+    \item $\myvec{0&1}\vec{x}+\myvec{-4&0}\vec{x}+4$=0
+    \item $\myvec{0&1}\vec{x}=0$
+    \item $\myvec{0&1}\vec{x}+\myvec{4&0}\vec{x}-4=0$
+    \item $\myvec{0&1}\vec{x}+\myvec{30&0}\vec{x}+50=0$
+    \end{enumerate}
+    \item Let the hyperbola passes through the focus of the ellipse 
+    \begin{align} 
+    \vec{x}^T\myvec{\frac{1}{25}& 0 \\0 & \frac{1}{16}} \vec{x}=1
+    \end{align} The transverse and conjugate axes of this hyperbola coincides with the major and minor axis of the given ellipse also the product of eccentricities of given ellipse and hyperbola is 1, then 
+    \begin{enumerate}
+    \item the equation of the hyperbola is 
+    $\vec{x}^T \myvec{\frac{1}{9}&0 \\0 & -\frac{1}{16}} \vec{x} =1$
+    \item the equation of the hyperbola is
+    $\vec{x}^T \myvec{\frac{1}{9}& 0 \\0 & -\frac{1}{25}}\vec{x}=1$
+    \item focus of hyperbola is \myvec{5\\0}
+    \item vertex of hyperbola is \myvec{5\sqrt{3}\\0}
+    \end{enumerate}
+    \item Let $\vec{P}=\myvec{x_1\\y_1}and \vec{Q}=\myvec{x_2\\y_2},y_1<0,y_2<0$,be the end point of the latus rectum of the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{1& 0 \\0 & 4} \vec{x}=4
+    \end{align}.The equation of parabola with latus rectum PQ are
+    \begin{enumerate}
+    \item $\vec{x}^T \myvec{ 1& 0 \\0 & 2\sqrt{3} } \vec{x}=3+\sqrt{3}$
+    \item $\vec{x}^T \myvec{1& 0 \\0 & -2\sqrt{3}} \vec{x}=3+\sqrt{3}$
+    \item $\vec{x}^T \myvec{1& 0 \\0 & 2\sqrt{3}}\vec{x}=3-\sqrt{3}$
+    \item $\vec{x}^T\myvec{1& 0 \\0 & -2\sqrt{3} }\vec{x}=3-\sqrt{3}$
+    \end{enumerate}
+    \item In a triangle ABC with fixed base BC,the vertex A moves such that 
+    $\cos B+\cos C=4\sin^2\frac{A}{2}$. If a, b and c denote the lengths of the triangle 
+    A,B and C,respectively,then 
+    \begin{enumerate}
+    \item b+c=4a
+    \item b+c=2a
+    \item locus of point$\vec{A}$ is an ellipse
+    \item locus of point $\vec{A}$ is a pair of straight lines
+    \end{enumerate}
+    \item The tangent PT and the normal PN to the parabola
+    \begin{align}
+    \vec{x}^T \myvec{-4a& 0 \\0 & 1}\vec{x}=0
+    \end{align}at a point $\vec{P}$ on it meet its axis at points $\vec{T}$ and $\vec{N}$, 	respectively. The locus of the centroid of the triangle PTN is a parabola whose
+    \begin{enumerate}
+    \item vertex is \myvec{\frac{2a}{3}\\0}
+    \item directrix is \myvec{1&0}=0
+    \item latus rectum is $\frac{2a}{3}$
+    \item focus is \myvec{a\\0}
+    \end{enumerate}
+    \item An ellipse intersects the hyperbola
+    \begin{align}
+    \vec{x}^T \myvec{2& 0 \\0 & -2}\vec{x}=1
+    \end{align} orthogonally.The eccentricity of the ellipse is reciprocal of that of the hyperbola.If the axes of the ellipse are along the coordinate axes,then
+    \begin{enumerate}
+    \item equation of ellipse is$\vec{x}^T\myvec{1& 0 \\0 & 2}\vec{x}=2$
+    \item the foci of ellipse are \myvec{\pm 1\\0}
+    \item equation of ellipse is $\vec{x}^T \myvec{1& 0 \\0 & 2}\vec{x}=4$
+    \item the foci of ellipse are \myvec{\pm \sqrt{2}\\0}
+    \end{enumerate}
+    \item Let$\vec{A}$ and $\vec{B}$ two distinct points on the parabola 
+    \begin{align}
+    \vec{x}^T \myvec{0& 0 \\0 & 1} \vec{x}=\myvec {4&0}\vec{x}.
+    \end{align} If the axis of a parabola touches a circle of radius r, 
+    having AB as its diameter, then the slop of the line joining A and B can be 
+    \begin{enumerate}
+    \item $-\frac{1}{r}$
+    \item $\frac{1}{r}$
+    \item $\frac{2}{r}$
+    \item $-\frac{2}{r}$
+    \end{enumerate}
+    \item Let the eccentricity of the hyperbola
+    \begin{align}
+    \vec{x}^T \myvec{\frac{1}{a^2}& 0 \\0 & -\frac{1}{b^2}} \vec{x}=1
+    \end{align}. If the hyperbola passes to that of the ellipse
+    \begin{align}
+    \vec{x}^T \myvec{1& 0 \\0 & 4 }\vec{x}=4
+    \end{align}. If the hyperbola passing through a focus of the ellipse, then
+    \begin{enumerate}
+    \item the equation of the hyperbola is $\vec{x}^T \myvec{\frac{1}{3}& 0 \\0 & -\frac{1}{2}} \vec{x}=1$
+    \item the focus of the hyperbola is $\myvec{2\\0}$
+    \item the eccentricity of the hyperbola is $\sqrt{\frac{5}{3}}$
+    \item the equation of the hyperbola is $\vec{x}^T  
+    \myvec{1& 0 \\0 & -3 }\vec{x}=3$
+    \end{enumerate}
+    \item Let L be a normal to the parabola
+    \begin{align}
+    \vec{x}^T \myvec{0& 0 \\0 & 1} \vec{x}=\myvec{4&0}\vec{x}
+    \end{align}. If $\vec{L}$ passes though the point\myvec{9\\6}, then $\vec{L}$ is given by
+    \begin{enumerate}
+    \item $\myvec{-1&1}\vec{x}+3=0$
+    \item $\myvec{3&1}\vec{x}-33=0$
+    \item $\myvec{1&1}\vec{x}-15=0$
+    \item $\myvec{-2&1}\vec{x}+12=0$
+    \end{enumerate}
+    \item Tangents are drawn to the hyperbola
+    \begin{align}
+    \vec{x}^T \myvec{\frac{1}{9}& 0 \\0 & -\frac{1}{4}}\vec{x}=1,
+    \end{align} parallel to the straight line
+    \begin{align}
+    \myvec{2&-1}\vec{x}=1
+    \end{align}. The point of contact of the tangents on the hyperbola are 
+    \begin{enumerate}
+    \item \myvec{\frac{9}{2\sqrt{2}}\\ \frac{1}{\sqrt{2}}}
+    \item \myvec{\frac{9}{2\sqrt{2}}\\ -\frac{1}{\sqrt{2}}}
+    \item \myvec{3\sqrt{3}\\-2\sqrt{2}}
+    \item \myvec{-3\sqrt{3}\\ 2\sqrt{2}}
+    \end{enumerate}
+    \item Let $\vec{P}$ and $\vec{Q}$ be distinct points on the parabola
+    \begin{align}
+    \vec{x}^T \myvec{0& 0 \\0 & 1}\vec{x}=\myvec{2&0}\vec{x}.
+    \end{align} such that a circle with PQ as diameter passes through the vertex O of the parabola. 		If P lies in the first quadrant and the area of the triangle $\Delta OPQ$ is $3\sqrt{2}$, then 			which of the following is (are)the coordinates of $\vec{P}$?
+    \begin{enumerate}
+    \item \myvec{4\\2\sqrt{2}}
+    \item \myvec{9\\3\sqrt{2}}
+    \item \myvec{\frac{1}{4}\\ \frac{1}{\sqrt{2}}}
+    \item \myvec{1\\ \sqrt{2}}
+    \end{enumerate}
+    \item Let $\vec{E_1}$and $\vec{E_2}$be two ellipses whose centers are at the origin. 					The major axes of $\vec{E_1} $ and $\vec{E_2}$ lie along the x-axis and the 
+    y-axis, respectively. Let S be the circle 
+    \begin{align}
+    \vec{x}^T \myvec{1& 0 \\0 & 1} \vec{x}+\myvec{0&-2}\vec{x}=1
+    \end{align}.
+    The straight line
+    \begin{align}
+    \myvec{1&1}\vec{x}=3
+    \end{align} touches the curves S. $E_1$ and $E_2$ at $\vec{P}$,$\vec{Q}$ and $\vec{R}$ respectively. Suppose that PQ=PR=$\frac{2\sqrt{2}}{3}$. If $e_1$ and $e_2$ are the eccentricities of $E_1$ and$E_2$, respectively, Then the correct expression(s) is (are)
+    \begin{enumerate}
+    \item $e_1^2+e_2^2=\frac{43}{40}$
+    \item $e_1e_2=\frac{\sqrt{7}}{2\sqrt{10}}$
+    \item $\mid e_1^2-e_2^2\mid=\frac{5}{8}$
+    \item $e_1e_2=\frac{\sqrt{3}}{4}$
+    \end{enumerate}
+    \item Consider a hyperbola H:
+    \begin{align}
+    \vec{x}^T \myvec{1& 0 \\0 & 1} \vec{x}=1
+    \end{align} and a circle S with center $\vec{N}=\myvec{x_2\\0}$. Suppose that H and S touches each other at a point $\vec{P}=\myvec{x_1\\y_1}$ with $x_1>1 $ and $ y_1>0$. The common tangent to   H and S at $\vec{P}$ intersects the x-axis at point $\vec{P}$. If$\myvec{1\\m}$ is the centroid of the triangle PMN, then the correct expression is(are)
+    \begin{enumerate}
+    \item $\dfrac{dl}{dx_1}=1-\frac{1}{3x_1^2}for x_1>1$
+    \item $\dfrac{dm}{dx_1}=\frac{x_1}{3(\sqrt{x_1^2-1})}$for $x_1>1$
+    \item $\dfrac{dl}{dx_1}=1+\frac{1}{3x_1^2}$for$ x_1>1$
+    \item $\dfrac{dm}{dx_1}=\frac{1}{3}$for$y_1>0$
+    \end{enumerate}
+    \item The circle $C_1$:
+    \begin{align}
+    \vec{x}^T \myvec{1& 0 \\0 & 1 } \vec{x}=3
+    \end{align}, with centre at O, intersects the parabola 
+    \begin{align}
+    \vec{x}^T \myvec{1& 0 \\0 & 0} \vec{x}=\myvec{0&2}\vec{x}
+    \end{align} and centres $Q_2 Q_3$, respectively. If $Q_2 Q_3$ lie on the y-axis, then
+    \begin{enumerate}
+    \item $Q_2 Q_3=12$
+    \item $R_2$ $R_3$=4$\sqrt{6}$
+    \item area of the triangle O$R_2R_3$is $6\sqrt{2}$
+    \item area of the triangle P$Q_2Q_3$is $4\sqrt{2}$
+    \end{enumerate}
+    \item Let $\vec{P}$ be the point on the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} which is at the shortest distance from the center S of the circle $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-4&-16} \vec{x}+64=0$. Let $\vec{Q}$ be the point on the circle dividing the line segment SP internally. Then 
+    \begin{enumerate}
+    \item SP=$2\sqrt{5}$
+    \item SQ:QP=$(\sqrt5+1):2$
+    \item the x-intercept of the normal to the parabola at $\vec{P}$ is 6.
+    \item the slop of the tangent to the circle at $\vec{Q}$ is $\frac{1}{2}$.
+    \end{enumerate}
+    \item If $\myvec{2&-1}\vec{x}+1=0$ is a tangent to the hyperbola 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&-\frac{1}{16}}\vec{x}=1.
+    \end{align} then which of the can not be sides of a right angled triangle ?
+    \begin{enumerate}
+    \item a,4,1
+    \item a,4,2
+    \item 2a,8,1
+    \item 2a,4,1
+    \end{enumerate}
+    \item If a chord, which is not a tangent, of the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{16&0}\vec{x}
+    \end{align} has the equation $\myvec{2&1}\vec{x}=p$, and midpoint $\myvec{h\\k}$, then which of the following are possible values of p,h and k?
+    \begin{enumerate}
+    \item p=-2,h=2,k=-4
+    \item p=-1,h=1,k=-3
+    \item p=2,h=3,k=-4
+    \item p=5,h=4,k=-3
+    \end{enumerate}
+    \item Consider two straight lines, each of which is tangents to both the circle
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=\frac{1}{2}
+    \end{align} and the parabola 
+    \begin{align} 
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align}. Let these lines intersect at a point $\vec{Q}$. Consider the ellipse whose centre is 	at the origin $\vec{O}=\myvec{0\\0}$ and whose semi major axis is OQ. If the length of the minor 		axis of this ellipse is $\sqrt{2}$, then which of the following statement(s) is(are) TRUE?
+    \begin{enumerate}
+    \item For the ellipse,the eccentricity is $\frac{1}{\sqrt{2}}$and the length of the latus rectum 		is 1
+    \item For the ellipse,the eccentricity is $\frac{1}{\sqrt{2}}$and the length of the latus rectum 		is $\frac{1}{2}$
+    \item the area of the region bounded by the ellipse between the lines $\myvec{1&0}\vec {x}=				\frac{1}{\sqrt{2}}$and $\myvec{1&0}\vec{x}=1$ is $\frac{1}{4\sqrt{2}}(\Pi-2)$
+    \item the area of the region bounded by the ellipse between the lines $\myvec{1&0}\vec {x}=				\frac{1}{\sqrt{2}}$and $\myvec{1&0}\vec{x}=1$ is $\frac{1}{16}(\Pi-2)$
+    \end{enumerate}
+    \textbf{Subjective Problems}
+    \item Suppose that the normals drawn at the different points on the parabola
+    \begin{align} 
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} pass through the point \myvec{h\\k}. Show that $h>2$.
+    \item $\vec{A}$ is a point on the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}.
+    \end{align} The normal A cuts the parabola again at the point B. if AB subtends a right angle at 		the vertex of the parabola. find the slop of AB.
+    \item Three normals are drawn from the point $\myvec{c\\0}$ to the curve
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{1&0}\vec{x}
+    \end{align}. Show that c must be greater than $\frac{1}{2}$. One normal is always the x-axis. 			Find c for which the other two normals are perpendicular to each other.
+    \item Through the vertex O of the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x},
+    \end{align} chords OQ and OP are drawn at right angles to one other. Show that for all positions of $\vec{P}$, PQ cuts the axis of the parabola at a fixed point. also find the locus of the middle point of PQ.
+    \item Show that the locus of point that divides a chord of slop 2 of the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} internally in the ratio 1:2 is a parabola. Find the vertex of this parabola.
+    \item Let $'d'$ be the perpendicular distance from the centre of the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&\frac{1}{b^2}}\vec{x}=1
+    \end{align} to the tangent drawn at a point $\vec{P}$ on the ellipse. If $F_1$ and $F_2$ are the 		two foci of the ellipse, then show that $(PF_1-PF_2)^2=4a^2(1-\frac{b^2}{d^2})$.
+    \item Points $\vec{A}$,$\vec{B}$ and $\vec{C}$ lie on the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}.
+    \end{align} The tangents to the parabola at A,B and C, taken in pairs, intersects at points   
+    $\vec{P}$, $\vec{Q}$ and $\vec{R}$. Determine the ratio of the areas of the triangles ABC and 			PQR.
+    \item From a point $\vec{A}$ common tangents are drawn to the circle 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=\frac{a^2}{2}
+    \end{align} and parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}.
+    \end{align} Find the area of the quadrilateral formed by the common tangents, the chord of the contact of the circle and the chord of the contact of the parabola
+    \item A tangent to the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&4}\vec{x}=4
+    \end{align} meets the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&2}\vec{x}=6 
+    \end{align} at point $\vec{P}$ and $\vec{Q}$. Prove that the tangents at point $\vec{P}$ and 
+    $\vec{Q}$ of the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&2}\vec{x}=6
+    \end{align} are at right angles.
+    \item The angle between a pair of tangents drawn from a point $\vec{P}$ to the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}
+    \end{align} is $45\degree$. Show that the locus of the point $\vec{P}$ is a hyperbola.
+    \item Consider the family of circles 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=r^2
+    \end{align}, $2<r<5$. If in the first quadrant, the common tangent to the circle of this family and the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{4&0\\0&25}\vec{x}=100
+    \end{align} meet the coordinate axes at A and B, then find the equation of the locus of the midpoint of AB.
+    \item Find co-ordinates of all the points $\vec{P}$ on the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&\frac{1}{b^2}}\vec{x}=1,
+    \end{align} for which the area of the triangle PON is maximum, where O denotes the origin and 			N, the foot of the perpendicular from O to the tangent at P.
+    \item Let ABC be an equilateral triangle inscribed in the circle 
+    \begin{align} 
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=a^2.
+    \end{align} Suppose perpendiculars from A,B,C to the major axis of the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&\frac{1}{b^2}}\vec{x}=1,(a>b)
+    \end{align}  meets the ellipse respectively, at $\vec{P}$, $\vec{Q}$, $\vec{R}$. So, that 
+    P,Q,R lie on the same side of the major axis as ABC respectively. Prove that the normals to the ellipse drawn at the points $\vec{P}$,$\vec{Q}$ and $\vec{R}$ are concurrent.
+    \item Let $C_1$ and $C_2$ be respectively, the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&0}\vec{x}=\myvec{0&1}\vec{x}-1
+    \end{align} and
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{1&0}\vec{x}-1.
+    \end{align} Let $\vec{P}$ be any point on $C_1$ and Q be any point on $C_2$. Let $P_1$ and 
+    $Q_1$ be the reflection of $\vec{P}$ and $\vec{Q}$, respectively. with respect to the line 
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{1&0}\vec{x}.
+    \end{align} Prove that $P_1$ lies on $C_2, Q_1$ lies on $C_1$ and $P Q \geq$ min 
+    $\myvec{PP_1\\QQ_1}$. Hence or otherwise determine points $P_0$ and $Q_0$ on parabolas $C_1$ and 		$C_2$ respectively such that $\myvec{P_0 Q_0 \leq PQ}$ for all pairs points $\myvec{P\\Q}$ with 
+    $\vec{P}$ on $C_1$ and $\vec{Q}$ on $C_2$.
+    \item Let$\vec{P}$ be a point on the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&\frac{1}{b^2}}\vec{x}=1,
+    \end{align} $0<b<a$. Let the line parallel to y-axis passing through $\vec{P}$ meet the circle
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=a^2
+    \end{align} at the point $\vec{Q}$ such that $\vec{P}$ and $\vec{Q}$ are on the same side of 
+    x-axis. For two positive real numbers r and s, find the locus of the point $\vec{R}$ on 
+    PQ such that $PR:RQ=r:s$ as $\vec{P}$ varies over ellipse.
+    \item Prove that in an ellipse, the perpendicular from a focus upon any tangent and the line joining the centre of the ellipse to the point of contact meet on the corresponding dirctrix.
+    \item Normals are drawn from the point $\vec{P}$ with slopes $m_1$, $m_2$, $m_3$ to the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align}. If locus of P with $m_1$,$m_2$=$\alpha$. is a part of the parabola it self then find $\alpha$.
+    \item Tangents is drawn to parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}+\myvec{-4&-2}\vec{x}+5=0
+    \end{align} at a point $\vec{Q}$. A point $\vec{R}$ is such that it divides QP externally in the ratio $\frac{1}{2}:2$. Find the locus of point $\vec{R}$.
+    \item Tangents are drawn from any point on the hyperbola
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{9}&0\\0&-\frac{1}{4}}\vec{x}=1
+    \end{align} to the circle
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=9.
+    \end{align} Find the locus of mid-point of the chord of contact.
+    \item Find the equation of the common tangents in the 1st quadrant to the circle 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=16
+    \end{align} and the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{25}&0\\0&\frac{1}{4}}\vec{x}=1.
+    \end{align} Also find the length of the intercept of the tangent between the coordinate axes.\\
+    {\Large\textbf{Comprehension Based Questions}}\\
+    \textbf{PASSAGE I}\\
+    Consider the circle
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=9
+    \end{align} and the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{8&0}\vec{x}.
+    \end{align} They intersects at $\vec{P}$ and $\vec{Q}$ in the first and fourth quadrants, 				respectively. Tangents to the circle at $\vec{P}$ and $\vec{Q}$ intersects the x-axis at 
+    $\vec{R}$ and tangents to the parabola at $\vec{P}$ and $\vec{Q}$ intersects the x-axis at 
+    $\vec{S}$.
+    \item The ratio of the areas of the triangles PQS and PQR is 
+    \begin{enumerate}
+    \item $1:\sqrt{2}$
+    \item $1:2$
+    \item $1:4$
+    \item $1:8$
+    \end{enumerate}
+    \item The radius of the circumcircle of the triangle PRS is
+    \begin{enumerate}
+    \item 5
+    \item $3\sqrt{3}$
+    \item $3\sqrt{2}$
+    \item $2\sqrt{3}$
+    \end{enumerate}
+    \item The radius of the incircle of the triangle PQR is
+    \begin{enumerate}
+    \item 4
+    \item 3
+    \item $\frac{8}{3}$
+    \item 2
+    \end{enumerate}
+    \textbf{PASSAGE 2}
+    The circle
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}-\myvec{8&0}\vec{x}=0
+    \end{align} and hyperbola 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{9}&0\\0&-\frac{1}{4}}\vec{x}=1 
+    \end{align} intersect at the points $\vec{A}$ and $\vec{B}$.
+    \item Equation of a common tangent with positive slop to the circle as well as to the hyperbola 		is
+    \begin{enumerate}
+    \item $\myvec{2&-\sqrt{5}}\vec{x}-20=0$
+    \item $\myvec{2&-\sqrt{5}}\vec{x}+4=0$
+    \item $\myvec{3&-4}\vec{x}+8=0$
+    \item $\myvec{4&-3}\vec{x}+4=0$
+    \end{enumerate}
+    \item Equation of the circle with AB as its diameter is
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-12&0}\vec{x}+24=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{12&0}\vec{x}+24=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{24&0}\vec{x}-12=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-24&0}\vec{x}-12=0$
+    \end{enumerate}
+    \textbf{PASSAGE 3}
+    Tangents are drawn from the point $\vec{P}=\myvec{3\\4}$ to the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{9}&0\\0&\frac{1}{4}}\vec{x}=1
+    \end{align} touches the ellipse at points $\vec{A}$ and $\vec{B}$.
+    \item The coordinates of A and B are 
+    \begin{enumerate}
+    \item $\myvec{3\\0}and\myvec{0\\2}$
+    \item $\myvec{-\frac{8}{5}\\\frac{2\sqrt{161}}{15}}$and
+    $\myvec{-\frac{9}{5} \\\frac{8}{5}}$
+    \item $\myvec{-\frac{8}{5}\\\frac{2\sqrt{161}}{15}}$and$\myvec{0\\2}$
+    \item $\myvec{3\\0}$and$\myvec{-\frac{9}{5}\\\frac{8}{5}}$
+    \end{enumerate}
+    \item The orthocenter of the triangle PAB is 
+    \begin{enumerate}
+    \item $\myvec{5\\\frac{8}{7}}$
+    \item $\myvec{\frac{7}{5}\\\frac{25}{8}}$
+    \item $\myvec{\frac{11}{5}\\\frac{8}{5}}$
+    \item $\myvec{\frac{8}{25}\\\frac{7}{5}}$
+    \end{enumerate}
+    \item The equation of the locus of a point whose distances from the point $\vec{P}$ and the line 		AB are equal, is 
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{9&0\\-6&1}\vec{x}+\myvec{-54&-62}\vec{x}+241=0$
+    \item $\vec{x}^T\myvec{1&0\\6&9}\vec{x}+\myvec{-54&62}\vec{x}-241=0$
+    \item $\vec{x}^T\myvec{9&0\\-6&9}\vec{x}+\myvec{-54&-62}\vec{x}-241=0$
+    \item $\vec{x}^T\myvec{1&0\\2&1}\vec{x}+\myvec{27&31}\vec{x}-120=0$
+    \end{enumerate}
+    \textbf{PASSAGE 4}\\
+    Let PQ be the focal chord of the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}.
+    \end{align} The tangents to the parabola at $\vec{P}$ and $\vec{Q}$ meet at a point lying on the 		line $\myvec{0&1}=\myvec{2&0}\vec{x}+a, a>0$.
+    \item Length of chord PQ is 
+    \begin{enumerate}
+    \item 7a
+    \item 5a
+    \item 2a
+    \item 3a
+    \end{enumerate}
+    \item If the chord PQ subtends an angle $\theta$ at the vertex of
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}
+    \end{align}, then $\tan\theta$=
+    \begin{enumerate}
+    \item $\frac{2}{3}\sqrt{7}$
+    \item $-\frac{2}{3}\sqrt{7}$
+    \item $\frac{2}{3}\sqrt{5}$
+    \item $-\frac{2}{3}\sqrt{5}$
+    \end{enumerate}
+
+    \textbf{PASSAGE 5}
+    Let a,r,s,t be the non zero real numbers. Let $\vec{P}=\myvec{at^2\\2at}$,$\vec{Q,R}=			\myvec{ar^2\\2ar}$ and $\vec{S}=\myvec{as^2\\2as}$ be distinct points on the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}.
+    \end{align} Suppose that PQ is the focal chord and lines QR and PK are parallel, where 
+    $\vec{K}=\myvec{2a\\0}$
+    \item The value of r is 
+    \begin{enumerate}
+    \item $-\frac{1}{t}$
+    \item $\frac{t^2+1}{t}$
+    \item $\frac{1}{t}$
+    \item $\frac{t^2-1}{t}$
+    \end{enumerate}
+    \item If st=1, then the tangent at $\vec{P}$ and the normal at $\vec{S}$ to the parabola meet at a point whose ordinate is 
+   \begin{enumerate} 
+   \item $\frac{(t^2+1)^2}{2t^3}$
+   \item $\frac {a(t^2+1)^2}{2t^3}$
+   \item $\frac {a(t^2+1)^2}{t^3}$
+   \item $\frac {a(t^2+2)^2}{t^3}$
+   \end{enumerate}   
+   \textbf{PASSAGE 6}\\
+   Let $F_1 = \myvec{x_1\\0}$ and 
+   $F_2 = \myvec{x_2\\0}$ for $x_1<0$ and $x_2>0$, be the foci of the ellipse 
+   \begin{align}
+   \vec{x}^T\myvec{\frac{1}{9}&0\\0&\frac{1}{8}}\vec{x}=1.
+   \end{align} Suppose a parabola having vertex at the origin and focus at $F_2$ intersects the ellipse at point $\vec{M}$ in the first quadrant and at point $\vec{N}$ in the fourth quadrant.
+    \item The orthocentre of the triangle $F_1MN$ is 
+    \begin{enumerate}
+    \item $\myvec{-\frac{9}{10}\\0}$
+    \item $\myvec{\frac{2}{3}\\0}$
+    \item $\myvec{\frac{9}{10}\\0}$
+    \item $\myvec{\frac{2}{3}\\\sqrt{6}}$
+   \end{enumerate}
+   \item If the tangents of the ellipse at $\vec{M}$ and $\vec{N}$ meet at $\vec{R}$ and the normals to the parabola at $\vec{M}$ meets the x-axis at $\vec{Q}$, then the ratio of the triangle MQR to area of the quadrilateral $M F_1 N F_2$ is
+    \begin{enumerate}
+    \item 3:4
+    \item 4:5
+    \item 5:8
+    \item 2:3
+   \end{enumerate}
+   {\textbf{Assertion and Reason Type Questions}}\\
+    \textbf{STATEMENT-I:}
+    The curve $\myvec{0&1}\vec{x}$=
+    \begin{align}
+    \vec{x}^T\myvec{-\frac{1}{2}&0\\0&0}\vec{x}+1
+    \end{align}. because\\
+    \textbf{STATEMENT-2:}A parabola is symmetric about its axis.
+    \begin{enumerate}
+    \item Statement-1 is True,Statement-2 is True;Statement-2 is a correct explanation for Statement-1
+    \item Statement-1 is True,Statement-2 is True;Statement-2 is NOT correct explanation for Statement-1
+    \item Statement-1 is True,Statement-2 is False
+    \item Statement-1 is False,Statement-2 is True.
+    \end{enumerate}
+   {\textbf{I   Integer Value Correction Type}}
+    \item The line $\myvec{2&1}\vec{x}=1$ is tangent to the hyperbola
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&-\frac{1}{b^2}}\vec{x}=1
+    \end{align}
+    If this line passes through the point of intersection of the nearest directrix and the x-axis,then the eccentricity of the hyperbola is 
+    \item Consider the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{8&0}\vec{x}
+    \end{align}. Let $\Delta_1$be the area of the triangle formed by the end points of its latus rectum and the point $\vec{P}=\myvec{\frac{1}{2}\\2}$ on the parabola and $\Delta_2$ be the area of the triangle formed by drawing tangents at $\vec{P}$ and at the end of the points of the latus rectum.Then $\frac{\Delta_1}{\Delta_2}$ is
+   \item Let S be the focus of the parabola 
+   \begin{align}
+   \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{8&0}\vec{x}
+   \end{align} and let PQ be the common chord of the cicle 
+   \begin{align}
+   \vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-2&-4}\vec{x}=0
+   \end{align} and the given parabola. The area of the triangle PQS is
+   \item A vertical line passing through the point $\myvec{h\\0}$ intersects the ellipse
+   \begin{align}
+   \vec{x}^T\myvec{\frac{1}{4}&0\\0&\frac{1}{3}}\vec{x}=1
+   \end{align}. at the point $\vec{P}$ and $\vec{Q}$. Let the tangents to the ellipse at $\vec{P}$ and $\vec{Q}$ meet at the point $\vec{R}$. If $\Delta(h)$ = area of the triangle PQR, $\Delta_1$ = max $\frac{1}{2}<h<1 \Delta(h)$ and $\Delta_2$ = min$\frac{1}{2}<h<1 \Delta(h)$, then $\frac{8}{\sqrt{5}}\Delta_1-8\Delta_2$
+    \begin{enumerate}
+    \item g(x) is continuous but not differentiable at a
+    \item g(x) is  differentiable on R
+    \item g(x) is continuous but not differentiable at b
+    \item g(x) is continuous but not differentiable at either (a)or (b) but not both.
+    \end{enumerate}
+    \item If the normals of the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} drawn at the end points of its latus rectum are tangents to the circle
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-6&4}\vec{x}-5=r^2,
+    \end{align} then the value of $r^2$ is 
+    \item Let the curve C be the mirror image of the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} with respect to the line $\myvec{1&1}\vec{x}+4=0$. If $\vec{A}$ and $\vec{B}$ are the points of intersecting of $\vec{C}$ with the line $\myvec{0&1}=-5$, then the distance between  
+    A and B is
+    \item Suppose that the foci of the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{9}&0\\0&\frac{1}{5}}\vec{x}=1
+    \end{align} are $\myvec{f_1\\0}$ and $\myvec{f_2\\0}$ where $f_1>0$ and $f_2<0$. Let $P_1$ and 			$P_2$ be two parabolas with a common vertex at $\myvec{0\\0}$ and with foci at $\myvec{f_1\\0}$ 		and $\myvec{2f_2\\0}$ respectively. Let $T_1$ be a tangent to $P_1$ which passes through
+    $\myvec{2f_2\\0}$ and $T_2$ be a tangent to $P_2$ which passes through $\myvec{f_1\\0}$. If
+    $m_1$ is the slope of the $T_1$ and $m_2$ is the slope of $T_2$, then the value of 
+    $\myvec{\frac{1}{m_1^2}+m_2^2}$ is\\
+    {\textbf{Section-B}}\\
+    {\textbf{JEE Main/AIEEE}}
+    \item Two common tangents to the circle
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}=2a^2
+    \end{align} and parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{8a&0}\vec{x}
+    \end{align} are
+    \begin{enumerate}
+    \item $\myvec{1&0}=\pm{(\myvec{0&1}\vec{x}+2a)}$
+    \item $\myvec{0&1}=\pm{(\myvec{1&0}\vec{x}+2a)}$
+    \item $\myvec{1&0}=\pm{(\myvec{0&1}\vec{x}+a)}$
+    \item $\myvec{0&1}=\pm{(\myvec{1&0}\vec{x}+a)}$
+    \end{enumerate}
+    \item The normals at the point $\myvec{bt_1^2\\2bt_1}$ on a parabola meets the parabola again in the point $\myvec{bt_2^2\\2bt_2}$, then
+    \begin{enumerate}
+    \item $t_2=t_1+\frac{2}{t_1}$
+    \item $t_2=-t_1-\frac{2}{t_1}$
+    \item $t_2=-t_1+\frac{2}{t_1}$
+    \item $t_2=t_1-\frac{2}{t_1}$
+    \end{enumerate}
+    \item The foci of the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{16}&0\\0&\frac{1}{b^2}}\vec{x}=1 
+    \end{align}and the hyperbola
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{144}&0\\0&-\frac{1}{81}}\vec{x}=\frac{1}{25}
+    \end{align} coincide.Then the value of $b^2$ is
+    \begin{enumerate}
+    \item 9
+    \item 1
+    \item 5
+    \item 7
+    \end{enumerate}
+    \item If $a\neq0$ and the line
+    \begin{align}
+    \vec{x}^T\myvec{2b&0\\0&3c}\vec{x}+4d=0
+    \end{align} passes through the point of intersection of the parabolas
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}
+    \end{align}and
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&0}\vec{x}=\myvec{0&4a}\vec{x}
+    \end{align}, then 
+    \begin{enumerate}
+    \item $d^2+(3b-2c)^2=0$
+    \item $d^2+(3b+2c)^2=0$
+    \item $d^2+(2b-3c)^2=0$
+    \item $d^2+(2b+3c)^2=0$
+    \end{enumerate}
+    \item The eccentricity of an ellipse, with its centre at the origin, is $\frac{1}{2}$.If one of the directrices is $\myvec{1&0}\vec{x}=4$, then the equation of the ellipse is:
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{4&0\\0&3}\vec{x}=1$
+    \item $\vec{x}^T\myvec{3&0\\0&4}\vec{x}=12$
+    \item $\vec{x}^T\myvec{4&0\\0&3}\vec{x}=12$ 
+    \item $\vec{x}^T\myvec{3&0\\0&4}\vec{x}=1$
+    \end{enumerate}
+    \item Let $\vec{P}$ be the point $\myvec{1\\0}$ and $\vec{Q}$ a point on the locus 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{8&0}\vec{x}
+    \end{align}
+    the locus of mid point of PQ is 
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{0&0\\0&1}\vec{x}+\myvec{-4&0}\vec{x}+2=0$
+    \item $\vec{x}^T\myvec{0&0\\0&1}\vec{x}+\myvec{4&0}\vec{x}+2=0$
+    \item $\vec{x}^T\myvec{1&0\\0&0}\vec{x}+\myvec{0&4}\vec{x}+2=0$
+    \item $\vec{x}^T\myvec{1&0\\0&0}\vec{x}+\myvec{-4&0}\vec{x}+2=0$
+    \end{enumerate}
+    \item The locus of a point $\vec{P} = \myvec{\alpha\\\beta}$ moving under the condition that the line $\myvec{0&1}\vec{x}=\myvec{\alpha&0}\vec{x}+\beta$ is a tangent to the hyperbola
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&-\frac{1}{b^2}}\vec{x}=1
+    \end{align} is 
+    \begin{enumerate}
+    \item an ellipse
+    \item a circle 
+    \item a parabola
+    \item a hyperbola 
+    \end{enumerate}
+    \item An ellipse has OB as semi minor axis, F and F' it's foci and the angle FBF' is a right angle. Then the eccentricity of the ellipse is
+    \begin{enumerate}
+    \item $\frac{1}{\sqrt{2}}$
+    \item $\frac{1}{2}$ 
+    \item $\frac{1}{4}$
+    \item $\frac{1}{\sqrt{3}}$ 
+    \end{enumerate}
+    \item The locus of the vertices of the family of parabolas
+    \begin{align}
+    \myvec{0&1}\vec{x}=\vec{x}^T\myvec{\frac{a^3}{3}&0\\0&0} \vec{x}+\myvec{\frac{a^2}{2}&0} \vec{x}-2a
+    \end{align} is
+    \begin{enumerate}
+    \item $\myvec{1&0\\0&1}\vec{x}=\frac{105}{64}$
+    \item $\myvec{1&0\\0&1}\vec{x}=\frac{3}{4}$
+    \item $\myvec{1&0\\0&1}\vec{x}=\frac{35}{16}$
+    \item $\myvec{1&0\\0&1}\vec{x}=\frac{64}{105}$ 
+    \end{enumerate}
+    \item In an ellipse, the distance between its foci is 6 and minor axis is 8. Then its eccentricity is
+    \begin{enumerate}
+    \item $\frac{3}{5}$
+    \item $\frac{1}{2}$ 
+    \item $\frac{4}{5}$
+    \item $\frac{1}{\sqrt{5}}$ 
+    \end{enumerate}
+    \item Angle between the tangents to the curve $\myvec{0&1}\vec{x}=\myvec{1&0\\0&0}\vec{x}+\myvec{-5&0}\vec{x}+6$ at the points $\myvec{2\\0}$ and $\myvec{3\\0}$ is 
+    \begin{enumerate}
+    \item $\pi$
+    \item $\frac{\pi}{2}$ 
+    \item $\frac{\pi}{6}$
+    \item $\frac{\pi}{4}$ 
+    \end{enumerate}
+    \item For the hyperbola
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{\cos^2\alpha}&0\\0&-\frac{1}{\sin^2\alpha}}
+    \vec{x}=1
+    \end{align}, which of the following remains constant when $\alpha$ varies=?
+    \begin{enumerate}
+    \item abscissae of vertices
+    \item abscissae of foci
+    \item eccentricity
+    \item directrix.
+    \end{enumerate}
+    \item The equation of a tangent to the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{8&0}\vec{x}
+    \end{align}is
+    \begin{align} \myvec{0&1}\vec{x}=\myvec{1&0}\vec{x}+2.
+    \end{align} The point on this line from which the other tangents to the parabola is perpendicular to the given tangent is
+    \begin{enumerate}
+    \item $\myvec{2\\4}$
+    \item $\myvec{-2\\0}$ 
+    \item $\myvec{-1\\-1}$
+    \item $\myvec{0\\2}$ 
+    \end{enumerate}
+    \item The normal to a curve at $\vec{P}=\myvec{x\\y}$ meets the x-axis at G. If the distance G from the origin is twice the abscissa of $\vec{P}$, then the curve is a
+    \begin{enumerate}
+    \item circle
+    \item hyperbola 
+    \item ellipse
+    \item parabola. 
+    \end{enumerate}
+    \item A focus of an ellipse is at the origin. The directrix is the line 
+    \begin{align}
+    \myvec{1&0}\vec{x}=4
+    \end{align} and the eccentricity is $\frac{1}{2}$. Then the length of the semi major axis is 
+    \begin{enumerate}
+    \item $\frac{8}{3}$
+    \item $\frac{2}{3}$
+    \item $\frac{4}{3}$
+    \item $\frac{5}{3}$
+    \end{enumerate}
+    \item A parabola has the origin as its focus and the line
+    \begin{align}
+    \myvec{1&0}\vec{x}=2
+    \end{align} as directrix. Then the vertex of the parabola is at 
+    \begin{enumerate}
+    \item $\myvec{0\\2}$
+    \item $\myvec{1\\0}$ 
+    \item $\myvec{0\\1}$
+    \item $\myvec{2\\0}$ 
+    \end{enumerate}
+    \item The ellipse
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&4}\vec{x}=4
+    \end{align} is inscribed in a rectangular aligned with the coordinate axes, which in turn is inscribed in another ellipse that passes through the point $\myvec{4\\0}$. Then the equation of the ellipse is :
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{1&0\\0&12}\vec{x}=16$
+    \item $\vec{x}^T\myvec{4&0\\0&48}\vec{x}=48$ 
+    \item $\vec{x}^T\myvec{4&0\\0&64}\vec{x}=48$
+    \item $\vec{x}^T\myvec{1&0\\0&16}\vec{x}=16$ 
+    \end{enumerate}
+    \item If two tangents drawn from a point $\vec{P}$ to the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} are at right angles, then the locus of P is
+    \begin{enumerate}
+    \item $\myvec{2&0}\vec{x}+1=0$
+    \item $\myvec{1&0}\vec{x}=-1$ 
+    \item $\myvec{2&0}\vec{x}-1=0$
+    \item $\myvec{1&0}\vec{x}=1$
+    \end{enumerate}
+    \item Equation of the ellipse whose axes are the axes of coordinates and which passes through the point $\myvec{-3\\1}$ and has eccentricity $\sqrt{\frac{2}{5}}$ is
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{5&0\\0&3}\vec{x}-48=0$
+    \item $\vec{x}^T\myvec{3&0\\0&5}\vec{x}-15=0$ 
+    \item $\vec{x}^T\myvec{5&0\\0&3}\vec{x}-32=0$
+    \item $\vec{x}^T\myvec{3&0\\0&5}\vec{x}-32=0$ 
+    \end{enumerate}
+    \item \textbf{Statement-1:}An equation of a common tangent to the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{16\sqrt{3}&0}\vec{x} 
+    \end{align} and the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{2&0\\0&1}\vec{x}=4
+    \end{align} is 
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{2&0}\vec{x}+2\sqrt{3}
+    \end{align}
+    \textbf{Statement-2:}If the line
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{m&0}\vec{x}+\frac{4\sqrt{3}}{m} (m \neq 0)
+    \end{align}, is a common tangent to the parabola 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{16\sqrt{3}&0}\vec{x}
+    \end{align} and the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{2&0\\0&1}\vec{x}=4
+    \end{align}, then m satisfies $m^4+2m^2=24$
+    \begin{enumerate}
+    \item Statement-1 is false, Statement-2 is true.
+    \item Statement-1 is true, Statement-2 is true;Statement-2 is correct explanation for Statement-1.
+    \item Statement-1 is true, Statement-2 is true;Statement-2 is NOT correct explanation for Statement-1.
+    \item Statement-1 is true, Statement-2 is false.
+    \end{enumerate} 
+    \item An ellipse is drawn by taking a diameter of the circle 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{2&0}\vec{x}=0
+    \end{align} as its semi-minor axis and a diameter of the circle 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{0&4}\vec{x}=0
+    \end{align} is semi-major axis. If the center of the ellipse is at the origin and its axes are the coordinate axes, then the equation of the ellipse is :
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{4&0\\0&1}\vec{x}=4$
+    \item $\vec{x}^T\myvec{1&0\\0&4}\vec{x}=8$ 
+    \item $\vec{x}^T\myvec{4&0\\0&1}\vec{x}=8$
+    \item $\vec{x}^T\myvec{1&0\\0&4}\vec{x}=16$ 
+    \end{enumerate}
+    \item The equation of the circle passing through the foci of the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{16}&0\\0&\frac{1}{9}}\vec{x}=1,
+    \end{align} and having centre at $\myvec{0\\3}$ is 
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{0&-6}\vec{x}-7=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{0&-6}\vec{x}+7=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{0&-6}\vec{x}-5=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{0&-6}\vec{x}+5=0$
+    \end{enumerate}
+    \item \textbf{Given:} A circle,
+    \begin{align}
+    \vec{x}^T\myvec{2&0\\0&2}\vec{x}=5
+    \end{align} and a parabola,
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4\sqrt{5}&0}\vec{x}
+    \end{align}.
+    \textbf{Statement-I:} An equation of a common tangent to these curve is 
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{1&0}\vec{x}+\sqrt{5}
+    \end{align}.
+    \textbf{Statement-2:} If the line,
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{m&0}\vec{x}+\frac{\sqrt{5}}{m}(m\neq0)
+    \end{align}is their common tangent,then m satisfies $m^4-3m^2+2=0$.
+    \begin{enumerate}
+    \item Statement-1 is true,Statement-2 is true;Statement-2 is correct explanation for Statement-1.
+    \item Statement-1 is true,Statement-2 is true;Statement-2 is not correct explanation for Statement-1.
+    \item Statement-1 is true,Statement-2 is false.
+    \item Statement-1 is false,Statement-2 is true.
+    \end{enumerate}
+    \item The locus of the foot of perpendicular drawn from the centre of the ellipse
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&3}\vec{x}=6
+    \end{align} on any tangent to it is
+    \begin{enumerate}
+    \item $(x^2+y^2)^2=6x^2+2y^2$
+    \item $(x^2+y^2)^2=6x^2-2y^2$
+    \item $(x^2-y^2)^2=6x^2+2y^2$
+    \item $(x^2-y^2)^2=6x^2-2y^2$
+    \end{enumerate}
+    \item The slop of the line touching both the parabolas 
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} and 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&0}\vec{x}=\myvec{0&-32}\vec{x}
+    \end{align} is 
+    \begin{enumerate}
+    \item $\frac{1}{8}$
+    \item $\frac{2}{3}$
+    \item $\frac{1}{2}$
+    \item $\frac{3}{2}$
+    \end{enumerate}
+    \item Let O be the vertex and Q be any point on the parabola,
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&0}\vec{x}=\myvec{0&8}\vec{x}.
+    \end{align} If the point $\vec{P}$ divides the lines segments OQ internally in the ratio 1:3, then locus of P is:
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}=\myvec{2&0}\vec{x}$
+    \item $\vec{x}^T\myvec{1&0\\0&0}\vec{x}=\myvec{0&2}\vec{x}$
+    \item $\vec{x}^T\myvec{1&0\\0&0}\vec{x}=\myvec{0&1}\vec{x}$
+    \item $\vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{1&0}\vec{x}$
+    \end{enumerate}
+    \item The normal to the curve,
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\2&-3}\vec{x}=0,
+    \end{align} at$\myvec{1\\1}$
+    \begin{enumerate}
+    \item meets the curve again in the third quadrant.
+    \item meets the curve again in the fourth quadrant.
+    \item does not meet the curve again.
+    \item meets the curve again in the second quadrant.
+    \end{enumerate}
+    \item The area(in sq.units) of the quadrilateral formed by the tangents at the end points of the latera recta to the ellipse 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{9}&0\\0&\frac{1}{5}}\vec{x}=1
+    \end{align} is 
+    \begin{enumerate}
+    \item $\frac{27}{2}$
+    \item 27
+    \item $\frac{27}{4}$
+    \item 18
+    \end{enumerate}
+    \item Let $\vec{P}$ be the point on the parabola,
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{8&0}\vec{x}
+    \end{align} which is at a minimum distance from the centre C of the circle 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{0&12}\vec{x}+36=1,
+    \end{align} Then the equation of the circle, passing through C and having its centre at $\vec{P}$ is:
+    \begin{enumerate}
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-\frac{1}{4}&2}\vec{x}-24=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-4&9}\vec{x}+18=0$
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-4&8}\vec{x}+12=0$    
+    \item $\vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{-1&4}\vec{x}-12=0$
+    \end{enumerate}
+    \item The eccentricity of the hyperbola whose length of the latus rectum is equal to 8 and the length of its conjugate axis is equal to half of the distance between its foci, is :
+    \begin{enumerate}
+    \item $\frac{2}{\sqrt{3}}$
+    \item $\sqrt{3}$
+    \item $\frac{4}{3}$
+    \item $\frac{4}{\sqrt{3}}$
+    \end{enumerate}
+    \item A hyperbola passes through the point $\vec{P}=\myvec{\sqrt{2}\\\sqrt{3}}$ and has foci at 
+    $\myvec{\pm2\\0}$. Then the tangent to this hyperbola at $\vec{P}$ also passes through the point:
+    \begin{enumerate}
+    \item $\myvec{-\sqrt{2}\\-\sqrt{3}}$
+    \item $\myvec{3\sqrt{2}\\2\sqrt{3}}$
+    \item $\myvec{2\sqrt{3}\\3\sqrt{3}}$
+    \item $\myvec{\sqrt{3}\\\sqrt{2}}$
+    \end{enumerate}
+    \item The radius of a circle, having minimum area, which touches the curve 
+    \begin{align}
+    \myvec{0&1}\vec{x}=4-\vec{x}^T\myvec{1&0\\0&0}\vec{x}
+    \end{align} and the lines,
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{\abs 1&0}\vec{x}
+    \end{align} is:
+    \begin{enumerate}
+    \item $4(\sqrt{2}+1)$
+    \item $2(\sqrt{2}+1)$
+    \item $2(\sqrt{2}-1)$
+    \item $4(\sqrt{2}-1)$
+    \end{enumerate}
+    \item Tangents are drawn to the hyperbola 
+    \begin{align}
+    \vec{x}^T\myvec{4&0\\0&-1}\vec{x}=36
+    \end{align} at the points $\vec{P}$ and $\vec{Q}$. if these tangents intersect at the point 
+    $\vec{T} = \myvec{0\\3}$ then the area(in sq.units) of the $\Delta PTQ$ is :
+    \begin{enumerate}
+    \item $54\sqrt{3}$
+    \item $60\sqrt{3}$
+    \item $36\sqrt{5}$
+    \item $45{\sqrt{5}}$
+    \end{enumerate}
+    \item Tangents are normal are drawn at $\vec{P} = \myvec{16\\16}$ on the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{16&0}\vec{x},
+    \end{align} which intersect the axis of the parabola at $\vec{A}$ and $\vec{B}$, respectively.
+    If C is the centre of the circle through the points P,A and B and
+    $\angle CPB=\theta$, then the value of $\tan\theta$ is :
+    \begin{enumerate}
+    \item 2
+    \item 3
+    \item $\frac{4}{3}$
+    \item $\frac{1}{2}$
+    \end{enumerate}
+    \item Two sets  A and B are as under :
+    \begin{align}
+    A = {\myvec{a\\b}\in R x R: \abs{a-5}<1 and \abs{b-5} <1}\\
+    B = {\myvec{a\\b}\in R x R:4(a-6)^2+9(b-5)^2\leq 36}.
+    \end{align} Then:
+    \begin{enumerate}
+    \item A $\subset$ B 
+    \item A $\cap$ B = $\phi$(an empty set)
+    \item neither A $\subset$ B nor B $\subset$ A
+    \item B $\subset$ A
+    \end{enumerate}
+    \item If the tangent at $\myvec{1\\7}$ to the curve 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&0}\vec{x}=\myvec{0&1}\vec{x}-6
+    \end{align} touches the circle 
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}+\myvec{16&12}\vec{x}+c=0
+    \end{align} then the value of c is :
+    \begin{enumerate}
+    \item 185
+    \item 85
+    \item 95
+    \item 195
+    \end{enumerate}
+    \item Axis of a parabola lies along x-axis. If its vertex and focus are at distances 2 and 4 respectively from the origin, on the positive x-axis then which of the following points does not lie on it?
+    \begin{enumerate}
+    \item $\myvec{5\\2\sqrt{6}}$
+    \item $\myvec{8\\6}$
+    \item $\myvec{6\\4\sqrt{2}}$
+    \item $\myvec{4\\-4}$
+    \end{enumerate}
+    \item Let $0<\theta<\frac{\pi}{2}$. If The eccentricity of the hyperbola
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{\cos^2\theta}&0\\0&\frac{1}{\sin^2\theta}} \vec{x}=1 
+    \end{align} is greater than 2, then the length of its latus rectum lies in the interval:
+    \begin{enumerate}
+    \item $\myvec{3\\\infty}$
+    \item $\myvec{\frac{3}{2}\\2}$
+    \item $\myvec{2\\3}$
+    \item $\myvec{1\\\frac{3}{2}}$
+    \end{enumerate}
+    \item Equation of a common tangent to the circle,
+    \begin{align}
+    \vec{x}^T\myvec{1&0\\0&1}\vec{x}-\myvec{6&0}\vec{x}=0
+    \end{align} and the parabola,
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} is :
+    \begin{enumerate}
+    \item $\myvec{0&2\sqrt{3}}\vec{x}=\myvec{12&0}\vec{x}+1$
+    \item $\myvec{0&\sqrt{3}}\vec{x}=\myvec{1&0}\vec{x}+3$
+    \item $\myvec{0&2\sqrt{3}}\vec{x}=\myvec{-1&0}\vec{x}-12$
+    \item $\myvec{0&\sqrt{3}}\vec{x}=\myvec{3&0}\vec{x}+1$
+    \end{enumerate}
+    \item If the line 
+    \begin{align}
+    \myvec{0&1}\vec{x}=\myvec{m&0}\vec{x}+7\sqrt{3}
+    \end{align} is normal to the hyperbola 
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{24}&0\\0&-\frac{1}{18}}\vec{x}=1,
+    \end{align} then a value of m is:
+    \begin{enumerate}
+    \item $\frac{\sqrt{5}}{2}$
+    \item $\frac{\sqrt{15}}{2}$
+    \item $\frac{2}{\sqrt{5}}$
+    \item $\frac{3}{\sqrt{5}}$
+    \end{enumerate}
+    \item If one end of a focal chord of the parabola,
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{16&0}\vec{x}
+    \end{align} is a $\myvec{1\\4}$.Then the length of this focal chord is:
+    \begin{enumerate}
+    \item 25
+    \item 22
+    \item 24
+    \item 20
+    \end{enumerate}
+    \onecolumn
+    {\textbf{Match the Following}}
+	\textbf{DIRECTIONS(Q. 1-3)}
+    Each question contains statements given in two columns, which have to be matched. the statement in column-1 is labelled can A, B, C and D. while the three statements in column-2 are labelled p, q, r, s and t. any given statement in column-1 can have correct matching with ONE or MORE statements in column-2. 
+%The appropriate bubble corresponding to the answers to these questions have to be darkened as illustrated in the following example:
+%    If the correct matches are A-p, s and t;B-q and r;C-p and q;and D-s then the correct darkening of bubbles will look like the given\\
+%\includegraphics[scale=0.3]{../match.jpg}\\     
+    \item Match the following:$\myvec{3\\0}$is the pt, from which three normals are drawn to the parabola
+    \begin{align}
+    \vec{x}^T\myvec{0&0\\0&1}\vec{x}=\myvec{4&0}\vec{x}
+    \end{align} which meet the parabola in the points $\vec{P}$, $\vec{Q}$ and $\vec{R}$. Then\\
+  \begin{tabular}{llll}
+    \textbf{Column-I}& \enspace &\textbf{Column-II}\\
+    (A) Area of $\Delta PQR$ &\enspace &(p)$2$\\
+    &&&\\
+    (B) Radius of circum circle of $\Delta PQR$&\enspace & (q)$\frac{5}{2}$\\
+    &&&\\
+    (C) Centroid of $\Delta PQR$&\enspace &   (r)$\myvec{{\frac{5}{2}}\\0}$\\
+    &&&\\
+    (D) circumcentre of $\Delta PQR$&\enspace &   (s)$\myvec{\frac{2}{3}\\0}$\\
+    &&&\\
+    \end{tabular}  
+ \item Match statements in the column I with the properties in Column II and indicate your answer by darkening the bubbles in 4 x 4 matrix given in the ORS.
+    \begin{tabular}{llll}
+    \textbf{Column-I} &\enspace &\textbf{Column-II}\\
+    (A) Two intersecting circles &\enspace &(p) have a common tangents\\
+    &&&\\
+    (B) Two mutually external circles &\enspace & (q) have a common normals\\
+    &&&\\
+    (C) Two circles,one strictly inside the other&\enspace &(r) do not have a common tangents\\ &&&\\
+    (D) Two branches of a hyperbola& \enspace &(s) do not have a common normals\\&&&\\
+    \end{tabular}
+    \item Match the conics in Column I with the statement/expression in Column II\\
+    \begin{tabular}{llll}
+    \textbf{Column-I} & \enspace &\textbf{Column-II}\\
+    (A) Circle &\enspace &(p) The focus of point $\myvec{h\\k}$for which the line $\myvec{h&k}\vec{x}=1$touches the circle $\myvec{1&0\\0&1}\vec{x}=4$\\ &&&\\
+    (B) Parabola &\enspace & (q) Point $\vec{z}$ in the complex plane satisfying $\abs{z+2}-\abs{z-2}=\pm3$\\&&&\\
+    (C) Ellipse &\enspace &(r) Points of the conic have paramatric representation $\myvec{1&0}\vec{x}=\sqrt{3}(\frac{1-t^2}{1+t^2})$,$\myvec{0&1}\vec{x}=\frac{2t}{1+t^2}$ \\ &&&\\
+    (D) Hyperbola &\enspace &(s) The eccentricity of the conic lies in the interval $1 \leq x< \infty$\\&&&\\
+    \end{tabular}
+ \textbf{DIRECTIONS(Q.4)}Following questions are matching lists.The codes for the list have choices(a),(b),(c)and (d)out of which ONLY ONE is correct.
+    \item A line L:$\myvec{0&1}\vec{x}=\myvec{m&0}\vec+3$meets y-axis at $\vec{E}=\myvec{0\\3}$ and the are of the parabola $\myvec{0&1}\vec{x}=\myvec{16&0}\vec{x}$, $0\leq y\leq 6$at the point 
+    $\vec{F}=\myvec{x_0\\y_0}$. The tangent to the parabola at $\vec{F}=\myvec{x_0\\y_0}$intersects the y-axis at $\vec{G}=\myvec{0\\y_1}$.The slope m of the line L is chosen such that the area of the triangle EGF has a local maximum.\\
+    Match the List I with List II and select the correct answer using the code given below the lists:
+    \begin{tabular}{llll}
+    \textbf{List-I} &\enspace &\textbf{List-II}\\
+    P. m=  &\enspace &   1. $\frac{1}{2}$\\ &&&\\
+    Q. Maximum area of $\Delta EFG$ is&\enspace & 2. 4\\&&&\\
+    R. $y_0$=&\enspace &3. 2 \\ &&&\\
+    S. $y_1$=&\enspace &4. 1 \\&&&\\
+    \end{tabular}
+    
+    {\textbf{codes:}}\\
+    \begin{tabular}{ c c c c }
+    \textbf{P\enspace Q\enspace R \enspace S}\\
+    
+    (a) 4 \enspace 1 \enspace 2 \enspace 3\\
+    (b) 3 \enspace 4 \enspace 1 \enspace 2\\
+    (c) 1 \enspace 3 \enspace 2 \enspace 4\\
+    (d) 1 \enspace 3 \enspace 4 \enspace 2\\
+    
+\end{tabular}\\
+    \textbf{Qs.5-7}: By appropriately matching the information given in the three columns of the following table Column1,2 and 3 contains conics,equations of the tangents to the conics and points of contact,respectively.
+    \begin{tabular}{llllll}
+    \textbf{Column-I} &\enspace &\textbf{Column-II}&\enspace  &\textbf{Column-III}\\
+    (I) $\myvec{1&0\\0&1}\vec{x}=a^2$&\enspace &
+    (i) $\myvec{0&m}\vec{x}=\myvec{m^2&0}\vec{x}+a$ &\enspace & 
+    (P) $\myvec{\frac{a}{m^2}\\\frac{2a}{m}}$\\ &&&\\
+    (II) $\myvec{1&0\\0&a^2}\vec{x}=a^2$&\enspace &
+    (ii) $\myvec{0&m}\vec{x}=\myvec{m&0}\vec{x}+a\sqrt{m^2+1}$ &\enspace &  (Q) $\myvec{-\frac{ma}{\sqrt{m^2+1}}\\\frac{a}{\sqrt{m^2+1}}}$\\ &&&\\
+    (III) $\myvec{0&0\\0&1}\vec{x}=\myvec{4a&0}\vec{x}$&   \enspace   & (iii) $\myvec{0&1}\vec{x}=\myvec{m&0}\vec{x}+\sqrt{a^2m^2-1}$ &\enspace & (R) $\myvec{-\frac{a^2m}{\sqrt{a^2m^2+1}}\\\frac{1}{\sqrt{a^2m^2+1}}}$\\ &&&\\
+    (IV) $\myvec{1&0\\0&-a^2}\vec{x}=a^2$&\enspace & 
+    (iv) $\myvec{0&1}\vec{x}=\myvec{m&0}\vec{x}+\sqrt{a^2m^2+1}$ & \enspace & (S) $\myvec{-\frac{a^2m}{\sqrt{a^2m^2-1}}\\-\frac{1}{\sqrt{a^2m^2-1}}}$\\ &&&\\
+    \end{tabular}
+    \item For $\vec{a}=\sqrt{2}$,if a tangent is drawn to a suitable conic(Column 1)at the point of contact$\myvec{-1\\1}$,then which of the following options is the only correct combination for obtaining its equation?
+    \begin{enumerate}
+    \item (I)  (i)  (P)
+    \item (I)  (ii)  (Q)
+    \item (II)  (ii)  (Q)
+    \item (III)  (i)  (P)
+    \end{enumerate}
+    \item If a tangent to a suitable conic(Column 1)is founded to be $\myvec{0&1}\vec{x}=\myvec{1&0}\vec{x}+8$ and its point of contact is $\myvec{8\\16}$,then which of the following options is the only correct combination?
+    \begin{enumerate}
+    \item (I)  (ii)  (Q)
+    \item (II)  (iv)  (R)
+    \item (III)  (i)  (P)
+    \item (III)  (ii)  (Q)
+    \end{enumerate}
+    \item The tangent to a suitable conic(Column1)at $\myvec{\sqrt{3}\\\frac{1}{2}}$ is found to be 
+    $\myvec{\sqrt{3}&2}\vec{x}=4$,then which of the following options is the only correct combination?
+    \begin{enumerate}
+    \item (IV)  (iii)  (S)
+    \item (IV)  (iv)  (S)
+    \item (II)  (iii)  (R) 
+    \item (II)  (iii)  (R)
+    \end{enumerate}
+    \item Let $\vec{H}$:
+    \begin{align}
+    \vec{x}^T\myvec{\frac{1}{a^2}&0\\0&-\frac{1}{b^2}}\vec{x}=1,
+    \end{align} where $a>b>0$,be a hyperbola in the xy-plane whose conjugate axis LM subtends an angle of $60\degree$ at one of its vertices N.Let the area of the triangle LMN be $4\sqrt{3}$.
+    \begin{tabular}{llll}
+    \textbf{List-I} &\enspace &\textbf{List-II}\\
+    P. The length of the conjugate axis of H is &\enspace &1. 8\\ &&&\\
+    Q. The eccentricity of H is &\enspace &2. $\frac{4}{\sqrt{3}}$\\ &&&\\
+    R. The distance between the foci of H is & \enspace & 
+    3. $\frac{2}{\sqrt{3}}$\\ &&&\\
+    P. The length of the latus rectum of H is&\enspace &   4. 4\\ &&&\\
+    \end{tabular}
+    \begin{enumerate}
+    \item $P\to4 Q\to2 R\to1 S\to3$
+    \item $P\to4 Q\to3 R\to1 S\to2$
+    \item $P\to4 Q\to1 R\to3 S\to2$
+    \item $P\to3 Q\to4 R\to2 S\to1$
+    \end{enumerate}
+    
+    \end{enumerate}
+    \end{document}
+    

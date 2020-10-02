@@ -1,0 +1,104 @@
+\renewcommand{\theequation}{\theenumi}
+\begin{enumerate}[label=\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\item Obtain the  $3 \times 3$ matrices $\cbrak{\vec{P}_k}_{k=1}^{6}$ from permutations of the  vectors
+\begin{align}
+\vec{v}_1 = \myvec{0 \\ 0 \\ 1},
+\vec{v}_2 = \myvec{0 \\ 1 \\ 0},
+\vec{v}_3 = \myvec{1 \\ 0 \\ 0}
+\end{align}
+%
+%
+\item Let 
+\begin{align}
+\vec{X} = \sum_{k=1}^{6}\vec{P}_k\myvec{2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1}\vec{P}_k^T.
+\end{align}
+Given 
+\begin{align}
+\vec{X}\myvec{1 \\1 \\1} = \alpha\myvec{1 \\1 \\1},
+\label{eq:2019_qp2_1_alpha}
+\end{align}
+is
+$\alpha= 30$?
+\\
+\solution 
+\begin{align}
+\because \vec{P}_k^T\myvec{1 \\1 \\1} &=  \myvec{1 \\1 \\1},
+\nonumber \\
+\vec{X}\myvec{1 \\1 \\1} &= \sum_{k=1}^{6}\vec{P}_k\myvec{2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1}\vec{P}_k^T\myvec{1 \\1 \\1} 
+\nonumber \\
+&= \sum_{k=1}^{6}\vec{P}_k\myvec{2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1}\myvec{1 \\1 \\1} 
+\nonumber \\
+&= \sum_{k=1}^{6}\vec{P}_k\myvec{5 \\3 \\5} =2\myvec{1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1}\myvec{6 \\3 \\6}
+\nonumber \\
+&= 30\myvec{1 \\1 \\1} 
+\end{align}
+%
+Thus, $\alpha=30$.
+\item Is $\vec{X}$  symmetric?
+\\
+\solution Yes. Trivial.
+\item Show that 
+\begin{align}
+\label{eq:2019_qp2_1_I}
+\vec{P}_k\vec{P}_k^T = \vec{I}
+\end{align}
+\solution
+\begin{align}
+\vec{P}_k = \myvec{\vec{v}_{k1}^T\\\vec{v}_{k2}^T\\\vec{v}_{k3}^T}
+\end{align}
+%
+where $\vec{v}_{ki}, i = 1,2,3$ are from the standard basis.  Then,
+\begin{align}
+\vec{P}_k\vec{P}_k^T &= \myvec{\vec{v}_{k1}^T\\\vec{v}_{k2}^T\\\vec{v}_{k3}^T}\myvec{\vec{v}_{k1}&\vec{v}_{k2}&\vec{v}_{k3}}
+ \vec{I}
+\nonumber
+\\
+\because 
+\vec{v}_{ji}^T\vec{v}_{kj} &= \delta_{jk}
+\end{align}
+%
+\item For $2\times 2$ matrices $\vec{A},\vec{B}$, verify that 
+\begin{align}
+tr\brak{AB}=tr\brak{BA}
+\end{align}
+%
+Show that this is true for any square matrix.
+\item Verify if the sum of the diagonal entries of $X$ is 18.
+\\
+\solution 
+\begin{align}
+\text{tr}\brak{\vec{X}} &= \sum_{k=1}^{6}\text{tr}\cbrak{\vec{P}_k\myvec{2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1}\vec{P}_k^T}
+\nonumber \\
+&= \sum_{k=1}^{6}\text{tr}\cbrak{\myvec{2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1}\vec{P}_k\vec{P}_k^T}
+\nonumber \\
+&= \sum_{k=1}^{6}\text{tr}\myvec{2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1} = 6\times 3 = 18
+\end{align}
+after substituting from \eqref{eq:2019_qp2_1_I}.
+%
+\item Is $\vec{X}-30\vec{I}$ invertible?
+\\
+\solution From \eqref{eq:2019_qp2_1_alpha},
+\begin{align}
+\vec{X}\myvec{1 \\1 \\1} &=30\vec{I}\myvec{1 \\1 \\1} 
+\nonumber \\
+\implies \brak{\vec{X}-30\vec{I}}\myvec{1 \\1 \\1}  &=0
+\end{align}
+If $\brak{\vec{X}-30\vec{I}}^{-1}$ exists,
+\begin{align}
+\brak{\vec{X}-30\vec{I}}^{-1}\brak{\vec{X}-30\vec{I}}\myvec{1 \\1 \\1}  &=0
+\nonumber \\
+\implies \myvec{1 \\1 \\1}  &=\vec{0}
+\end{align}
+%
+which is a contradiction.  Hence, $\vec{X}-30\vec{I}$ is not invertible.
+%
+\item For any two $3 \times 3$ matrices $A$ and $B$, let $A+B = 2B^T$ and $3A+2B=I_3$.  Which of the following 
+is true?
+\begin{enumerate}
+\item $5A+10B=2I_3$.
+\item $10A+5B=3I_3$.
+\item $2A+B=3I_3$.
+\item $3A+6B=2I_3$.
+\end{enumerate}
+\end{enumerate}

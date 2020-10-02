@@ -1,0 +1,804 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{caption}
+%\usepackage{multirow}
+%\usepackage{multicolumn}
+%\usepackage{subcaption}
+%\doublespacing
+\singlespacing
+\usepackage{csvsimple}
+\usepackage{amsmath}
+\usepackage{multicol}
+%\usepackage{enumerate}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+\usepackage{newfloat}
+%\usepackage{syntax}
+\usepackage{listings}
+\usepackage{iithtlc}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{mathtools}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{enumerate}	
+\usepackage{enumitem}
+\usepackage{amsmath}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{hyperref}
+%\usepackage[framemethod=tikz]{mdframed}
+\usepackage{listings}
+    %\usepackage[latin1]{inputenc}                                 %%
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+
+
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+
+%\usepackage{stmaryrd}
+
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+%\lstset{
+%language=C,
+%frame=single, 
+%breaklines=true
+%}
+
+%\lstset{
+	%%basicstyle=\small\ttfamily\bfseries,
+	%%numberstyle=\small\ttfamily,
+	%language=Octave,
+	%backgroundcolor=\color{white},
+	%%frame=single,
+	%%keywordstyle=\bfseries,
+	%%breaklines=true,
+	%%showstringspaces=false,
+	%%xleftmargin=-10mm,
+	%%aboveskip=-1mm,
+	%%belowskip=0mm
+%}
+
+%\surroundwithmdframed[width=\columnwidth]{lstlisting}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+ 
+
+\begin{document}
+%
+\tikzstyle{block} = [rectangle, draw,
+    text width=3em, text centered, minimum height=3em]
+\tikzstyle{sum} = [draw, circle, node distance=3cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+
+\providecommand{\nCr}[2]{\,^{#1}C_{#2}} % nCr
+\providecommand{\nPr}[2]{\,^{#1}P_{#2}} % nPr
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\Vert#1\right\Vert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\numberwithin{equation}{subsection}
+%\numberwithin{equation}{section}
+%\numberwithin{problem}{subsection}
+%\numberwithin{definition}{subsection}
+\makeatletter
+\@addtoreset{figure}{section}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\thesection}
+
+
+%\numberwithin{figure}{subsection}
+
+%\numberwithin{equation}{subsection}
+%\numberwithin{equation}{section}
+%\numberwithin{equation}{problem}
+%\numberwithin{problem}{subsection}
+\numberwithin{problem}{section}
+%%\numberwithin{definition}{subsection}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
+\makeatletter
+\@addtoreset{table}{section}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+\let\StandardTheTable\thetable
+\let\vec\mathbf
+%%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+%\renewcommand{\thefigure}{\theproblem}
+
+%%\numberwithin{figure}{section}
+
+%%\numberwithin{figure}{subsection}
+
+
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+
+\vspace{3cm}
+
+\title{ 
+	\logo{
+JEE Problems in Discrete Mathematics
+	}
+}
+
+%\author{ G V V Sharma$^{*}$% <-this % stops a space
+%	\thanks{*The author is with the Department
+%		of Electrical Engineering, Indian Institute of Technology, Hyderabad
+%		502285 India e-mail:  gadepall@iith.ac.in. All content in this manual is released under GNU GPL.  Free and open source.}
+	
+%}	
+
+\maketitle
+
+%\tableofcontents
+
+\bigskip
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+
+
+\begin{abstract}
+	A  collection of problems from JEE papers related to matrices are available in this document.  Verify your soluions using  C.
+\end{abstract}
+\section{Signal Processing: Z Transform}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+
+\item Let
+\begin{align}
+a(n) &= \frac{\alpha^n-\beta^n}{\alpha-\beta}u(n)
+\\
+b(n) &=a(n-1)+a(n+1) - \delta(n)
+\end{align}
+where $\alpha, \beta$ are the roots of the equation
+\begin{equation}
+z^2-z-1 = 0
+\end{equation}
+and
+\begin{align}
+u(n)
+=
+\begin{cases}
+0, & n < 0
+\\
+1, & n \ge 0
+\end{cases}
+\\
+\delta(n)
+=
+\begin{cases}
+0, & n \ne 0
+\\
+1, & n = 0
+\end{cases}
+\end{align}
+\item Verify your results through a C program.
+%\begin{enumerate}[label=\theenumi.\arabic*
+%,ref=\thesection.\theenumi]
+\item Show that the $Z$ transform of $u(n)$
+\begin{align}
+U(z)&\triangleq \sum_{n=-\infty}^{\infty}u(n)z^{-n} 
+\\
+&= \frac{1}{1- z^{-1}}, \quad \abs{z} > 1
+\end{align}
+\item  Show that 
+\begin{align}
+A(z)&= \frac{z^{-1}}{1- z^{-1}-z^{-2}}
+\end{align}
+\item Let 
+\begin{align}
+y(n)=a(n)*u(n) \triangleq \sum_{k=-\infty}^{\infty}a(k) u(n-k)
+\end{align}
+%
+Show that 
+\begin{align}
+y(n) = \sum_{k=0}^{n}a(k) 
+\end{align}
+%
+\item Show that 
+\begin{align}
+Y(z) &= A(z)U(z)
+\\
+&= \frac{z^{-1}}{\brak{1- z^{-1}-z^{-2}}\brak{1- z^{-1}}}
+\end{align}
+\item Show that 
+\begin{align}
+w(n)&=\sbrak{a(n+2)-1}u(n-1)
+\\
+&=a(n+2)-u(n+1)+2\delta(n)
+\end{align}
+\item Is $W(z)=Y(z)$?
+\item Verify if 
+\begin{align}
+\sum_{n=1}^{\infty}\frac{a(n)}{10^n} = \frac{10}{89}
+\end{align}
+\item Verify if 
+\begin{align}
+\sum_{n=1}^{\infty}\frac{b(n)}{10^n} = \frac{8}{89}
+\end{align}
+\section{Algebra: Modular Arithmetic}
+Let $AP\brak{a;d}$ denote an A.P. with $d > 0$
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item Express $AP\brak{a;d}$ in modulo arithmetic.
+\\
+\solution 
+\begin{align}
+\label{eq:14_ap_mod_def}
+A &\equiv a\pmod{d}
+\end{align}
+\item Express the intersection of $AP\brak{1;3}, AP\brak{2;5}$ and $AP\brak{3;7}$  using modulo arithmetic.
+\\
+\solution The desired AP can be expressed as
+\begin{align}
+\label{eq:14_ap_mod}
+A &\equiv 1\pmod{3}
+\\
+& \equiv 2\pmod {5}
+\\
+&\equiv 3\pmod{7}
+\end{align}
+%
+\item Two numbers are said to be coprime if their greatest common divisor (gcd) is 1. Verify if (3,5), (5,7) and (3,7) are pairwise coprime.
+\item Does a solution for \eqref{eq:14_ap_mod} exist?
+\\
+\solution  The Chinese remainder theorem guarantees that the system in \eqref{eq:14_ap_mod} has a solution since 3,5,7 are pairwise coprime.
+%\item Find the modular multiplicative inverse of 
+%\begin{align}
+%\label{eq:14_ap_modinv}
+%A &\equiv \brak{7\times 11}\pmod{5}
+%\end{align}
+% 
+\item Simplify 
+\begin{align}
+\label{eq:14_ap_mod_753}
+\brak{7\times 5}\pmod{3}
+\end{align}
+%
+\solution \eqref{eq:14_ap_mod_753} can be expressed as
+%
+\begin{align}
+\label{eq:14_ap_mod_753_sol}
+\brak{7\times 5}\pmod{3} &= 35\pmod{3} 
+\nonumber \\
+&=2\pmod{3}
+\end{align}
+
+\item Find $x$ in 
+%
+\begin{align}
+\label{eq:14_ap_mod_753_prob}
+2x =1\pmod{3}
+\end{align}
+%
+%
+\solution By inspection, for $x = 2$, 
+\begin{align}
+%\label{eq:14_ap_mod_753_sol}
+2x = 2\times 2 = 4 = 3+1 =1\pmod{3}
+\end{align}
+%
+Thus $x = 2$ is a solution of \eqref{eq:14_ap_mod_753_prob}. 
+
+\item In general, $x$ in 
+\begin{align}
+\label{eq:14_ap_mod_inv_def}
+ax =1\pmod{d}
+\end{align}
+%
+is defined to be the modular multiplicative inverse of \eqref{eq:14_ap_mod_def}.
+\item Show that the multiplicative inverse of 
+\begin{align}
+\label{eq:14_ap_mod_357_sol}
+\brak{3\times 5}\pmod{7} &= y=1
+\end{align}
+%
+\item Show that the multiplicative inverse of 
+\begin{align}
+\label{eq:14_ap_mod_375_sol}
+\brak{3\times 7}\pmod{5} &= z=1
+\end{align}
+%
+\item Find $a+d$.
+\\
+\solution 
+\begin{multline}
+\label{eq:14_ap_mod_ad_sol}
+\brak{5\times 7 \times 1 \times x}+
+\brak{3\times 5\times 3 \times y} 
+\\
++
+\brak{3\times 7\times 2 \times z} =  157
+\end{multline}
+%
+\item Find $a$ and $d$.
+\\
+\solution
+\begin{align}
+\label{eq:14_ap_mod_d}
+d &= LCM\brak{3,5,7} = 105
+\\
+A&=157 \pmod{105} 
+\nonumber \\
+&= 52\pmod{105} 
+\nonumber \\
+\implies a &= 52
+\end{align}
+\item Given the APs 
+\begin{align}
+\label{eq:14_ap_mod_gen}
+a_1&\pmod{d_1}
+\\
+a_2 &\pmod {d_2}
+\\
+a_3 &\pmod {d_3},
+\end{align}
+%
+such that 
+\begin{align}
+gcd(d_1,d_2)=gcd(d_2,d_3)=gcd(d_3,d_1)=1,
+\end{align}
+show that their intersection
+\begin{align}
+\label{eq:14_ap_mod_gen_int}
+a\pmod{d}
+\end{align}
+%
+is obtained through
+\begin{multline}
+\label{eq:14_ap_mod_ad_gen}
+a+d =
+\\
+ \brak{d_1\times d_2 \times a_3 \times x}+
+\brak{d_2\times d_3 \times a_1 \times y}
+\\
++
+\brak{d_3\times d_1 \times a_2 \times z}
+\end{multline}
+\begin{align}
+\label{eq:14_ap_mod_d_gen}
+d &= LCM\brak{d_1,d_2,d_3},
+\end{align}
+%
+where $x, y, z$ are the modular multiplicative inverses given by
+\begin{align}
+\label{eq:14_ap_mod_mul_inv_gen}
+x &= \sbrak{ \brak{d_1\times d_2}\pmod{d_3}}^{-1}
+\\
+y &= \sbrak{ \brak{d_2\times d_3}\pmod{d_1}}^{-1}
+\\
+z &= \sbrak{  \brak{d_3\times d_1}\pmod{d_2}}^{-1}
+\end{align}
+respectively.
+%
+\item Write  a C program to find $x,y$ and $z$.
+%\item Find the vector $\myvec{n \\ k \\ r}$ with the smallest length such that $A_n \cap B_k \cap C_r $.
+%\\
+%\solution This is obtained by considering the following set of equations
+%\begin{align}
+% 3n-2= 5k-3
+%\\
+%5k-3 = 7r-4
+%%\\
+%%7r-4 = a + md
+%\end{align}
+%%
+%which can be simplified to obtain the matrix equation 
+%\begin{align}
+%\myvec{3 & -5 & 0 \\ 0 & 5 & -7  }\myvec{n \\ k \\ r} = \myvec{-1 \\ -1 }
+%%\myvec{3 & 5 & 0 \\ 0 & 5 & 7 \\ 7 &  0 & 0 }\myvec{n \\ k \\ r} = \myvec{-1 \\ -1 \\ a + md}
+%\end{align}
+%%
+%yielding the augmented matrix 
+%\begin{align}
+%\myvec{3 & -5 & 0 & -1\\ 0 & 5 & -7 &-1 }\leftrightarrow \myvec{3 & 0 & -7 & -2\\ 0 & 5 & -7 &-1 } 
+%\\
+%\implies \myvec{3n \\ 5k \\ r} = \myvec{ -2 \\ -1\\ 0 } + r \myvec{ 7 \\ 7  \\ 1} 
+%\\
+%\implies \myvec{n \\ k \\ r} = \myvec{ \frac{7r-2}{3} \\ \frac{7r-1}{5}\\ r }
+%%\myvec{3 & 5 & 0 \\ 0 & 5 & 7 \\ 7 &  0 & 0 }\myvec{n \\ k \\ r} = \myvec{-1 \\ -1 \\ a + md}
+%\end{align}
+%%
+%For $r = 8, n = 18, k = 11$ are integers.  
+%\item  Find $a+d$ such that $A_n \cap B_k \cap C_r \cap AP\brak{a:d}$.
+%\\
+%\solution Substituting $r = 8$ in \eqref{eq:14_r},
+%\begin{align}
+%a = 7r - 4 = 52
+%\end{align}
+%Also, 
+%\begin{align}
+%a+d &= a + 3i = a + 5j = a + 7m,
+%\\
+%\implies d &= 3i=5j=7m
+%\end{align}
+%%
+%for some positive integers $i, j, m$. The smallest integer $d$ satisfying the above condition is $LCM\brak{3,5,7} = 105$.  Hence, $a + d = 52+105 = 157$.
+\end{enumerate}
+
+\end{enumerate}
+\section{Discrete Fourier Transform}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item Show that 
+\begin{align}
+\label{eq:qp2_3_cexp}
+\sum_{k=0}^{n-1}e^{\j \frac{2 \pi k}{n}} 
+= 
+\begin{cases}
+1 & n = 1,
+\\
+0 & n > 1
+\end{cases}
+\end{align}
+\item Show that 
+%
+\begin{align}
+\label{eq:qp2_3_cosr}
+\sum_{k=0}^{n}\cos \brak{\frac{2k+r}{n+2}\pi} = -\cos\brak{\frac{r-2}{n+2}\pi} 
+\end{align}
+\solution From \eqref{eq:qp2_3_cexp},
+\begin{align}
+\label{eq:qp2_3_cosr_sol}
+\sum_{k=0}^{n+1}e^{\j \frac{2k+r}{n+2}\pi} &=0
+\nonumber \\
+\implies \sum_{k=0}^{n}e^{\j \frac{2k+r}{n+2}\pi} + e^{\j \frac{2\brak{n+1}+r}{n+2}\pi} &=0
+\nonumber \\
+\implies \sum_{k=0}^{n}e^{\j \frac{2k+r}{n+2}\pi} &=  -e^{\j \frac{2\brak{n+2}+r-2}{n+2}\pi} 
+\nonumber \\
+&=-e^{\j \frac{r-2}{n+2}\pi} 
+\end{align}
+Taking the real part on both sides yields \eqref{eq:qp2_3_cosr}.
+%
+\item Show that 
+\begin{align}
+\label{eq:qp2_3_sum}
+f(n) & = \frac{\sum_{k=0}^{n}\sin\brak{\frac{k+1}{n+2}\pi}
+\sin\brak{\frac{k+2}{n+2}\pi} }{\sum_{k=0}^{n}\sin^2\brak{\frac{k+2}{n+2}\pi}}
+%\nonumber 
+\\
+& = 
+\frac{\brak{n+1}\cos \brak{\frac{\pi}{n+2}}}{n+\cos\brak{\frac{2\pi}{n+2}}}
+\label{eq:qp2_3_sum_ans}
+\end{align}
+%\frac{n\cos \cbrak{\frac{\pi}{n+2}}-\sum_{k=0}^{n}\cos \cbrak{\frac{2k+3}{n+2}\pi}}{n-\sum_{k=0}^{n}\cos\cbrak{\frac{2k+4}{n+2}\pi}}
+\solution 
+Let
+\begin{align}
+\label{eq:qp2_3_theta}
+\theta_n = \frac{\pi}{n+2}
+\end{align}
+%
+\begin{multline}
+\label{eq:qp2_3_cos}
+\because \sin\cbrak{\brak{k+1}\theta_n}
+\sin\cbrak{\brak{k+2}\theta_n} ,
+\\
+= \frac{1}{2}\sbrak{\cos \theta_n-\cos \cbrak{\brak{2k+3}\theta_n}}
+\end{multline}
+from \eqref{eq:qp2_3_sum} and \eqref{eq:qp2_3_cosr},
+\begin{align}
+\label{eq:qp2_3_sum_sol}
+f(n) & = \frac{n\cos \theta_n-\sum_{k=0}^{n}\cos \cbrak{\brak{2k+3}\theta_n}}{n-\sum_{k=0}^{n}\cos\cbrak{\brak{2k+4}\theta_n}}
+\nonumber \\
+&= \frac{n\cos \brak{\frac{\pi}{n+2}}+\cos \brak{\frac{\pi}{n+2}}}{n+\cos\brak{\frac{2\pi}{n+2}}}
+\end{align}
+resulting in \eqref{eq:qp2_3_sum_ans}.  Verify if 
+\item 
+\begin{align}
+f(4) = \frac{\sqrt{3}}{2}
+\end{align}
+\item 
+\begin{align}
+\lim_{n \to \infty}f(n) = \frac{1}{2}
+\end{align}
+\item 
+\begin{align}
+\sin\brak{7 \cos^{-1}f(5)} = 0
+\end{align}
+\item If 
+\begin{align}
+\alpha = 
+\tan\brak{ \cos^{-1}f(6)} 
+\end{align}
+verify if 
+\begin{align}
+\alpha^2 +2\alpha -1 =  0 
+\end{align}
+\end{enumerate}
+%
+\section{Combinatorics}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item Find 
+\begin{align}
+\label{eq:2019_qp2_comb_nat}
+\sum_{k=0}^{n}k
+\end{align}
+\solution  \eqref{eq:2019_qp2_comb_nat} can be expressed as
+\begin{align}
+\label{eq:2019_qp2_comb_nat_sol}
+\frac{n(n+1)}{2}
+\end{align}
+\item Find 
+\begin{align}
+\label{eq:2019_qp2_comb_k2}
+\sum_{k=0}^{n}\nCr{n}{k}k^2
+\end{align}
+\solution 
+\begin{align}
+\label{eq:2019_qp2_comb}
+\brak{1+x}^n&=\sum_{k=0}^{n}\nCr{n}{k}x^k
+%\nonumber 
+\\
+\implies n\brak{1+x}^{n-1}&=\sum_{k=0}^{n}k\nCr{n}{k}x^{k-1}
+\label{eq:2019_qp2_comb_k2_bin}
+\end{align}
+upon differentiation. Multiplying \eqref{eq:2019_qp2_comb_k2_bin} by $x$ and differentiating,
+\begin{align}
+\frac{d}{dx} \sbrak{nx\brak{1+x}^{n-1}}&=\sum_{k=0}^{n}k^2\nCr{n}{k}x^{k-1}
+\end{align}
+\begin{multline}
+\implies n\brak{n-1}x\brak{1+x}^{n-2}+n\brak{1+x}^{n-1}  
+\\
+=\sum_{k=0}^{n}k^2\nCr{n}{k}x^{k-1}
+\label{eq:2019_qp2_comb_k2_bin_diff}
+\end{multline}
+%
+Substituting $x=1$ in \eqref{eq:2019_qp2_comb_k2_bin_diff},
+\begin{align}
+\sum_{k=0}^{n}\nCr{n}{k}k^2 &= n\brak{n-1}2^{n-2}+n2^{n-1}
+\nonumber \\
+&= n\brak{n+1}2^{n-2}
+\label{eq:2019_qp2_comb_k2_bin_sol}
+\end{align}
+\item Find 
+\begin{align}
+\label{eq:2019_qp2_comb_k}
+\sum_{k=0}^{n}\nCr{n}{k}k
+\end{align}
+\solution Substituting $x=1$ in \eqref{eq:2019_qp2_comb_k2_bin},
+\begin{align}
+\label{eq:2019_qp2_comb_k_sol} 
+\sum_{k=0}^{n}\nCr{n}{k}k= n2^{n-1}
+\end{align}
+\item Find 
+\begin{align}
+\label{eq:2019_qp2_comb_3k}
+\sum_{k=0}^{n}\nCr{n}{k}3^k
+\end{align}
+\solution Substituting $x=2$ in \eqref{eq:2019_qp2_comb},
+\begin{align}
+\label{eq:2019_qp2_comb_3k_sol}
+\sum_{k=0}^{n}\nCr{n}{k}3^k = 4^n
+\end{align}
+\item If
+\begin{align}
+\label{eq:2019_qp2_comb_det}
+\begin{vmatrix}
+\frac{n(n+1)}{2} & n\brak{n+1}2^{n-2}
+\\
+n2^{n-1} & 4^n
+\end{vmatrix} = 0
+\end{align}
+for some $n$, find 
+\begin{align}
+\label{eq:2019_qp2_comb_det_prob}
+\sum_{k=0}^{n}\frac{\nCr{n}{k}}{k+1}
+\end{align}
+%
+\solution \eqref{eq:2019_qp2_comb_det} can be expressed as
+\begin{align}
+\label{eq:2019_qp2_comb_det_sol}
+n(n+1)2^{2n-3}
+\begin{vmatrix}
+1 & 1
+\\
+n & 4
+\end{vmatrix} = 0
+\\
+\implies n = 4
+\end{align}
+%
+Integrating \eqref{eq:2019_qp2_comb} from 0 to 1,
+
+\begin{align}
+\label{eq:2019_qp2_comb_int}
+\frac{2^{n+1}}{n+1}&=\sum_{k=0}^{n}\frac{\nCr{n}{k}}{k+1}
+\end{align}
+%
+Substituting $n=4$ in the above, 
+\begin{align}
+\label{eq:2019_qp2_comb_int_sol}
+\sum_{k=0}^{n}\frac{\nCr{n}{k}}{k+1}= \frac{2^{5}-1}{5} = \frac{31}{5}
+\end{align}
+\end{enumerate}
+\section{Probability}
+Table \ref{table:2019_7} lists the number of red (R) and green (G) balls in bags $B_1, B_2$ and $B_3$. Also listed are the probabilities of each bag.
+\begin{table}[!h]
+\centering
+%\resizebox {0.5\columnwidth} {!} {
+%\input{./figs/components.tex}
+\input{./figs/2019_7.tex}
+%}
+\caption{}
+\label{table:2019_7}
+\end{table}
+
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item Show that 
+\begin{align}
+\pr{G|B_3} = \frac{3}{8}
+\end{align}
+\item Show that 
+\begin{align}
+\pr{G} = \frac{39}{80} 
+\end{align}
+\solution 
+\begin{align}
+\because \pr{G|B_1} &= \frac{1}{2}, \pr{G|B_2} = \frac{5}{8}, \pr{G|B_3} = \frac{3}{8},
+\nonumber \\
+\pr{G} &= \sum_{i=1}^{3}\pr{G|B_i}\pr{B_i}
+\\
+ &= \frac{1}{2}\times\frac{3}{10}+\frac{5}{8} \times\frac{3}{10}+\frac{3}{8}\times \frac{4}{10}
+\\
+ &= \frac{39}{80}
+\end{align}
+\item Is
+\begin{align}
+\pr{B_3|G} = \frac{5}{13}\, ?
+\end{align}
+\solution 
+\begin{align}
+\pr{B_3|G} &= \frac{\pr{G|B_3}\pr{B_3}}{\pr{G}}
+\\
+&= \frac{\frac{3}{8}\times \frac{4}{10}}{\frac{39}{80}} = \frac{4}{13} \ne \frac{5}{13}
+\end{align}
+\item Is
+\begin{align}
+\pr{B_3 \cap G} = \frac{3}{10}\, ?
+\end{align}
+\solution 
+\begin{align}
+\pr{B_3 \cap G} &= \pr{G|B_3}\pr{B_3} \\
+\\
+=& \frac{3}{8} \times \frac{4}{10}=\frac{3}{20}\ne\frac{3}{10}
+\end{align}
+\end{enumerate}
+\section{Combinatorics}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item Five persons $A, B, C, D $ and $E$ are seated in a circuar arrangment. Let $A, C, E$ be given the colour green. Find the number of ways to distribute blue and red to $B$ and $D$.
+\\
+\solution Both $B$  and $D$ can be given either blue or red.  The number of possible ways is
+\begin{align}
+\label{eq:qp2_10_ace_g}
+2\times 2 = 4
+\end{align}
+\item Repeat the above exercise with $B,D, A$ having the colour green.
+\item Find the total number of ways in which the colour green can be distributed to alternate persons so that persons seated in adjacent seats get different coloured hats.
+\\
+\solution The number of such ways is
+\begin{align}
+\label{eq:qp2_10_g}
+2\times 2 \times 2= 8
+\end{align}
+\item  If each person  is given a hat of one of 3 colours red, blue and green, then find the number of ways of distributing the hats such that the persons seated in adjacent seats get different coloured hats.
+\\
+\solution The number of ways is 
+\begin{align}
+\label{eq:qp2_10_sol}
+2\times 2 \times 2 \times 3= 24
+\end{align}
+\end{enumerate}
+\end{document}
